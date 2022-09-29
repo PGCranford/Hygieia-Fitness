@@ -76,6 +76,7 @@
 .nav-link {
   color: var(--white) !important;
   margin-left: 8px;
+  font-size: 20px;
 }
 
 .nav-link::after {
@@ -132,7 +133,26 @@
 }
 
 /* Custom Section */
+.custom {
+  margin: 120px auto;
+}
 
+.custom .box {
+  overflow: hidden;
+}
+
+.custom img {
+  height: 400px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.custom img:hover {
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
 
 /* Footer */
 footer {
@@ -145,4 +165,5 @@ footer .container {
   font-size: 30px;
   margin: 20px auto;
   color: var(--white);
+  text-align: center;
 }
