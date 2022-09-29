@@ -1,25 +1,21 @@
 import HeaderImg from '../../images/header.jpg'
-export default function Header() {
 
+const Header = () => {
     return (
-        <>
-            <section>
-                <div className='header'>
-                    <div>
-                        <div className='img'>
-                            <img src={HeaderImg} alt='' />
-                        </div>
-                        <div className='overlay'></div>
+        <section>
+            <div className='header'>
+                <div>
+                    <div className='img'>
+                        <img src={HeaderImg} alt='' />
                     </div>
-                    <div className='content'>
-                        <h6>Build Your Fitness World <br /> By Building Your Body</h6>
-                        <button className='btn'>Join Now</button>
-                    </div>
-
+                    <div className='overlay'></div>
                 </div>
-
-            </section>
-        </>
-
+                <div className='content'>
+                    <h6>Build Your Fitness World <br /> By Building Your Body</h6>
+                    <button className='btn'>Join Now</button>
+                </div>
+            </div>
+        </section>
     )
 }
+export default Header 

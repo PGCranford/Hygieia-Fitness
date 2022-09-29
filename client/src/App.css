@@ -97,7 +97,7 @@
 }
 
 .header img {
-  height: 120vh;
+  height: 90vh;
   width: 100%;
   object-fit: cover;
 }
@@ -129,4 +129,20 @@
 
 .header .btn {
   margin-top: 30px;
+}
+
+/* Custom Section */
+
+
+/* Footer */
+footer {
+  background: var(--black);
+  padding: 20px;
+}
+
+footer .container {
+  font-weight: 600;
+  font-size: 30px;
+  margin: 20px auto;
+  color: var(--white);
 }

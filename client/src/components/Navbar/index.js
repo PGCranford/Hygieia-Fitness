@@ -1,5 +1,6 @@
-export default function Navbar() {
+import React from 'react';
 
+const Navbar = () => {
     return (
         <nav className='navbar navbar-expand-sm fixed-top'>
             <a href='/' className='navbar-brand'><span>H</span>ygieia Fitness</a>
@@ -12,14 +13,8 @@ export default function Navbar() {
                     <li className='nav-item'><a href='/' className='nav-link'>Comments</a></li>
                 </ul>
             </div>
-
         </nav>
-
-
-
-
-
-
     )
 }
 
+export default Navbar
