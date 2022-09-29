@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
 import { ADD_WORKOUT } from '../../utils/mutations';
-import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
-import { QUERY_WORKOUTS } from '../../../utils/queries';
+import { QUERY_WORKOUTS,  QUERY_USER} from '../../../utils/queries';
 
 import styles from "./style.module.css";
-import WorkoutList from '../WorkoutList';
+
 
 const WorkoutForm = () => {
     const [workoutText, setText] = useState('');
@@ -21,9 +20,9 @@ const WorkoutForm = () => {
             // could potentially not exist yet, so wrap in a try/catch
             try {
                 // update me array's cache
-                const { me } = cache.readQuery({ query: QUERY_ME });
+                const { me } = cache.readQuery({ query: QUERY_USER});
                 cache.writeQuery({
-                    query: QUERY_ME,
+                    query: QUERY_USER,
                     data: { me: { ...me, workouts: [...me.workouts, addWorkout] } },
                 });
             } catch (e) {
@@ -92,9 +91,7 @@ const WorkoutForm = () => {
                             setReps(parseInt(e.currentTarget.value, 10))
                         }
                     >
-                        
                     </textarea>
-
                     <textarea class="column"
                         placeholder='Exercise'
                         value={workoutText}
@@ -122,7 +119,7 @@ const WorkoutForm = () => {
     
 };
 
-const WorkoutRounds = ({ id }: { id: number}) => (
+const Round = ({ id }: { id: number}) => (
 <div>
     <label htmlfor={`WorkoutRounds${id}`}>Round{id}</label>
     <input id={`WorkoutRounds${id}`} type="text"/>
