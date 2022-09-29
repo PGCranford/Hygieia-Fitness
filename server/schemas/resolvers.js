@@ -19,7 +19,7 @@ const resolvers = {
 
         addWorkout: async (parent, args, context) => {
             if (context.user) {
-                const thought = await Workout.create({ ...args, username: context.user.username });
+                const workout = await Workout.create({ ...args, username: context.user.username });
 
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },

@@ -7,6 +7,8 @@ const typeDefs = gql`
 type Workout {
     _id: ID
     workoutText: String
+    workoutReps: INT
+    workoutRounds: INT
     username: String
     comments: [Comment]
 }

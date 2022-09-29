@@ -11,6 +11,19 @@ const workoutSchema = new Schema(
             minlength: 1,
             maxlength: 540
         },
+        workoutReps: {
+            type: String,
+            required: 'You must enter reps',
+            minlength: 1,
+            maxlength: 540
+
+        },
+        workoutRounds: {
+            type: String,
+            required: 'You need to leave a workout!',
+            minlength: 1,
+            maxlength: 540
+        },
         createdAt: {
             type: Date,
             default: Date.now,

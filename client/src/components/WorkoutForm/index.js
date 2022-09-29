@@ -12,7 +12,7 @@ const WorkoutList = ({ workouts, title }) => {
             <h2>{title}</h2>
             {workouts &&
                 workouts.map(workout => (
-                    <div key={(workout.id)} className={styles["workout-form"]} class="columns">
+                    <div key={(workout.id)} className={styles["workout-form"]} >
                         <p className={styles["workout-header"]}>
                             <Link
                                 to={`/profile/${workout.username}`}
@@ -21,15 +21,28 @@ const WorkoutList = ({ workouts, title }) => {
                                 {workout.username}
                             </Link>{''}
                         </p>
-                        <div className={styles["workout-card"]}>
+                        <div className={styles["workout-card"]} class="columns">
                             <div class="column">
-                                Reps
+                                <Link
+                                    to={`/profile/${workout.workoutReps}`}
+                                >
+                                    {workout.workoutReps}
+                                </Link>
                             </div>
                             <div class="column is-two-fifths">
-                                Exercise
+                                <Link
+                                    to={`/profile/${workout.workoutText}`}
+                                >
+                                    {workout.workoutText}
+                                </Link>
+
                             </div>
                             <div class="column">
-                                Rounds
+                                <Link
+                                    to={`/profile/${workout.workoutRounds}`}
+                                >
+                                    {workout.workoutRounds}
+                                </Link>
                             </div>
                             <div className={styles["comment-section"]}>
                                 <Link to={`/workout/${workout._id}}`}>
