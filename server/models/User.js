@@ -1,117 +1,64 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought } = require('../models');
-const { signToken } = require('../utils/auth');
+const { Schema, model } = require('mongoose');
+const bcrypt = require('bcrypt');
 
-const resolvers = {
-    Query: {
-        me: async (parent, args, context) => {
-            if (context.user) {
-                const userData = await User.findOne({ _id: context.user._id })
-                    .select('-__v -password')
-                    .populate('thoughts')
-                    .populate('friends');
-
-                return userData;
-            }
-
-            throw new AuthenticationError('Not logged in');
-        },
-        users: async () => {
-            return User.find()
-                .select('-__v -password')
-                .populate('thoughts')
-                .populate('friends');
-        },
-        user: async (parent, { username }) => {
-            return User.findOne({ username })
-                .select('-__v -password')
-                .populate('friends')
-                .populate('thoughts');
-        },
-        thoughts: async (parent, { username }) => {
-            const params = username ? { username } : {};
-            return Thought.find(params).sort({ createdAt: -1 });
-        },
-        thought: async (parent, { _id }) => {
-            return Thought.findOne({ _id });
-        },
+const userSchema = new Schema(
+  {
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true
     },
-
-    Mutation: {
-        addUser: async (parent, args) => {
-            const user = await User.create(args);
-            const token = signToken(user);
-
-            return { token, user };
-        },
-        login: async (parent, { email, password }) => {
-            const user = await User.findOne({ email });
-
-            if (!user) {
-                throw new AuthenticationError('Incorrect credentials');
-            }
-
-            const correctPw = await user.isCorrectPassword(password);
-
-            if (!correctPw) {
-                throw new AuthenticationError('Incorrect credentials');
-            }
-
-            const token = signToken(user);
-            return { token, user };
-        },
-        addThought: async (parent, args, context) => {
-            if (context.user) {
-                const thought = await Thought.create({
-                    ...args,
-                    username: context.user.username,
-                });
-
-                await User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                    { $push: { thoughts: thought._id } },
-                    { new: true }
-                );
-
-                return thought;
-            }
-
-            throw new AuthenticationError('You need to be logged in!');
-        },
-        addReaction: async (parent, { thoughtId, reactionBody }, context) => {
-            if (context.user) {
-                const updatedThought = await Thought.findOneAndUpdate(
-                    { _id: thoughtId },
-                    {
-                        $push: {
-                            reactions: {
-                                reactionBody,
-                                username: context.user.username,
-                            },
-                        },
-                    },
-                    { new: true, runValidators: true }
-                );
-
-                return updatedThought;
-            }
-
-            throw new AuthenticationError('You need to be logged in!');
-        },
-        addFriend: async (parent, { friendId }, context) => {
-            if (context.user) {
-                const updatedUser = await User.findOneAndUpdate(
-                    { _id: context.user._id },
-                    { $addToSet: { friends: friendId } },
-                    { new: true }
-                ).populate('friends');
-
-                return updatedUser;
-            }
-
-            throw new AuthenticationError('You need to be logged in!');
-        },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      match: [/.+@.+\..+/, 'Must match an email address!']
     },
+    password: {
+      type: String,
+      required: true,
+      minlength: 5
+    },
+    // thoughts: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Thought'
+    //   }
+    // ],
+    // friends: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'User'
+    //   }
+    // ]
+  },
+  {
+    toJSON: {
+      virtuals: true
+    }
+  }
+);
+
+// set up pre-save middleware to create password
+userSchema.pre('save', async function(next) {
+  if (this.isNew || this.isModified('password')) {
+    const saltRounds = 10;
+    this.password = await bcrypt.hash(this.password, saltRounds);
+  }
+
+  next();
+});
+
+// compare the incoming password with the hashed password
+userSchema.methods.isCorrectPassword = async function(password) {
+  return bcrypt.compare(password, this.password);
 };
 
-module.exports = resolvers;
+// userSchema.virtual('friendCount').get(function() {
+//   return this.friends.length;
+// });
+
+const User = model('User', userSchema);
+
+module.exports = User;
