@@ -21,7 +21,12 @@ const WorkoutList = ({ workouts, title }) => {
                                 {workout.username}
                             </Link>{''}
                         </p>
-                        <div >
+                        <div> 
+                            <Link
+                            to={`profile/${workout.workoutRounds}`}
+                            >
+                            </Link>
+                        </div >
                             <div>
                                 <Link
                                     to={`/profile/${workout.workoutReps}`}
@@ -46,14 +51,15 @@ const WorkoutList = ({ workouts, title }) => {
                             </div>
                             <div className={styles["comment-section"]}>
                                 <Link to={`/workout/${workout._id}}`}>
-                                    //LINK TO COMMENTS
+                                    [//LINK TO COMMENTS]
                                 </Link>{''}
                                 commented on{comment.createdAt}
                             </div>
                         </div>
-                    </div>
+                    
                 ))}
         </div>
+    );
 };
 
 export default WorkoutList;

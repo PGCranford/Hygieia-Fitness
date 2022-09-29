@@ -113,19 +113,20 @@ const WorkoutForm = () => {
                         <Round id={index + 1} key={index}/>
                     )
                 )}
+                
 
-                const WorkoutList = ({ id }: { id: number}) => (
-                <div>
-                    <label htmlfor={`WorkoutList${id}`}>Round{id}</label>
-                    <input id={`WorkoutList${id}`} type="text"/>
-
-                </div>
-                )
             </form>
         </div >
     )
-
-
+    
+    
 };
 
+const WorkoutRounds = ({ id }: { id: number}) => (
+<div>
+    <label htmlfor={`WorkoutRounds${id}`}>Round{id}</label>
+    <input id={`WorkoutRounds${id}`} type="text"/>
+
+</div>
+)
 export default WorkoutForm;
