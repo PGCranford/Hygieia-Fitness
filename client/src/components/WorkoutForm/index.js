@@ -1,59 +1,131 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styles from "./style.module.css";
+import React, { useState } from 'react';
 
-const WorkoutList = ({ workouts, title }) => {
-    if (!workouts.length) {
-        return <h3>No Workouts Yet</h3>
-    }
+import { useMutation } from '@apollo/client';
+import { ADD_WORKOUT } from '../../utils/mutations';
+import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
+import { QUERY_WORKOUTS } from '../../../utils/queries';
+
+import styles from "./style.module.css";
+import WorkoutList from '../WorkoutList';
+
+const WorkoutForm = () => {
+    const [workoutText, setText] = useState('');
+    const [workoutReps, setReps] = useState('');
+    const [workoutRounds, setRounds] = React.useState(1);
+    const [committedExercises, setcommittedExercises] = React.useState(0);
+    const [characterCount, setCharacterCount] = useState();
+
+    const [addWorkout, { error }] = useMutation(ADD_WORKOUT, {
+        update(cache, { data: { addWorkout } }) {
+
+            // could potentially not exist yet, so wrap in a try/catch
+            try {
+                // update me array's cache
+                const { me } = cache.readQuery({ query: QUERY_ME });
+                cache.writeQuery({
+                    query: QUERY_ME,
+                    data: { me: { ...me, workouts: [...me.workouts, addWorkout] } },
+                });
+            } catch (e) {
+                console.warn("First workout insertion by user!")
+            }
+
+            // update thought array's cache
+            const { workouts } = cache.readQuery({ query: QUERY_WORKOUTS });
+            cache.writeQuery({
+                query: QUERY_WORKOUTS,
+                data: { thoughts: [addWorkout, ...workouts] },
+            });
+        }
+    });
+
+    // update state based on form input changes
+    const handleChange = (event) => {
+        if (event.target.value.length <= 280) {
+            setText(event.target.value);
+            setCharacterCount(event.target.value.length);
+        }
+    };
+
+    // submit form
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            await addWorkout({
+                variables: { workoutText },
+            });
+
+            // clear form value
+            setText('');
+            setCharacterCount(0);
+        } catch (e) {
+            console.error(e);
+        }
+    };
 
     return (
         <div>
-            <h2>{title}</h2>
-            {workouts &&
-                workouts.map(workout => (
-                    <div key={(workout.id)} className={styles["workout-form"]} >
-                        <p className={styles["workout-header"]}>
-                            <Link
-                                to={`/profile/${workout.username}`}
-                                className={styles["workout-user"]}
-                            >
-                                {workout.username}
-                            </Link>{''}
-                        </p>
-                        <div className={styles["workout-card"]} class="columns">
-                            <div class="column">
-                                <Link
-                                    to={`/profile/${workout.workoutReps}`}
-                                >
-                                    {workout.workoutReps}
-                                </Link>
-                            </div>
-                            <div class="column is-two-fifths">
-                                <Link
-                                    to={`/profile/${workout.workoutText}`}
-                                >
-                                    {workout.workoutText}
-                                </Link>
+            <form class="columns" className={styles["workout-form"]}
+                onSubmit={handleFormSubmit}
+            >
+                <p
+                    className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
+                >
+                    Character Count: {characterCount}/280
+                    {error && <span className="ml-2">Something went wrong...</span>}
+                </p>
+                <textarea class="column"
+                    placeholder='rounds'
+                    value={workoutRounds}
+                    className={styles["workout-rounds"]}
+                    onChange={(e) =>
+                        setRounds(parseInt(e.currentTarget.value, 10))
+                    }
+                >
+                    
+                    <textarea class="column"
+                        placeholder='reps'
+                        value={workoutReps}
+                        className={styles["workout-reps"]}
+                        onChange={(e) =>
+                            setReps(parseInt(e.currentTarget.value, 10))
+                        }
+                    >
+                        
+                    </textarea>
 
-                            </div>
-                            <div class="column">
-                                <Link
-                                    to={`/profile/${workout.workoutRounds}`}
-                                >
-                                    {workout.workoutRounds}
-                                </Link>
-                            </div>
-                            <div className={styles["comment-section"]}>
-                                <Link to={`/workout/${workout._id}}`}>
-                                    //LINK TO COMMENTS
-                                </Link>{''}
-                                commented on{comment.createdAt}
-                            </div>
-                        </div>
-                    </div>
-                ))}
-        </div>
+                    <textarea class="column"
+                        placeholder='Exercise'
+                        value={workoutText}
+                        className={styles["workout-text"]}
+                        onChange={(e) =>
+                            setText(parseInt(e.currentTarget.value, 10))
+                        }
+                    ></textarea>
+                </textarea>
+                <button onClick={() => {
+                    setcommittedExercises(workoutRounds);
+                }} >Add Rounds</button>
+
+                {[...Array(committedExercises)].map(
+                    (value: undefined, index: number) => (
+                        <Round id={index + 1} key={index}/>
+                    )
+                )}
+
+                const WorkoutList = ({ id }: { id: number}) => (
+                <div>
+                    <label htmlfor={`WorkoutList${id}`}>Round{id}</label>
+                    <input id={`WorkoutList${id}`} type="text"/>
+
+                </div>
+                )
+            </form>
+        </div >
+    )
+
+
 };
 
-export default WorkoutList;
+export default WorkoutForm;
