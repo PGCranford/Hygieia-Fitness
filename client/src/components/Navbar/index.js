@@ -4,6 +4,7 @@ const Navbar = () => {
     return (
         <nav className='navbar navbar-expand-sm fixed-top'>
             <a href='/' className='navbar-brand'><span>H</span>ygieia Fitness</a>
+
             <div>
                 <ul className='navbar-nav'>
                     <li className='nav-item'><a href='/' className='nav-link'>Home</a></li>
