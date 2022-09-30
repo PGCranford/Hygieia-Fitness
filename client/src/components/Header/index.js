@@ -14,18 +14,22 @@ const Header = () => {
     };
     return (
         <>
+
             <nav className='navbar navbar-expand-sm fixed-top'>
                 <a href='/' className='navbar-brand'><span>H</span>ygieia Fitness</a>
-
                 {Auth.loggedIn() ? (
+
                     <>
-                        <Link to="/profile">Me</Link>
-                        <a href="/" onClick={logout}>
-                            Logout
-                        </a>
+
+                        <div className='navbar-brand'>
+                            <Link to="/profile">Me</Link>
+                            <a href="/" onClick={logout}>
+                                Logout
+                            </a>
+                        </div>
                     </>
                 ) : (
-                    <div className='nav-item'>
+                    <div className='navbar-nav'>
                         <Link className='nav-link' to="/">Home</Link>
                         <Link className='nav-link' to="/login">Login</Link>
                         <Link className='nav-link' to="/signup">Signup</Link>
