@@ -11,9 +11,6 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    friendCount: Int
-    workouts: [Workout]
-    friends: [User]
   }
 
 
@@ -26,16 +23,11 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    workouts(username: String): [Workout]
-    workout(_id: ID!): Workout
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addWorkout(workoutText: String!): Workout
-    addComment(workoutId: ID!, commentBody: String!): Workout
-    addFriend(friendId: ID!): User
   }
 `;
 
