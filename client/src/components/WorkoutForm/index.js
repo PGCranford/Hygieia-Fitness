@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
 import { ADD_WORKOUT } from '../../utils/mutations';
-import { QUERY_WORKOUTS,  QUERY_USER} from '../../../utils/queries';
+import { QUERY_WORKOUTS,  QUERY_USER} from '../../utils/queries';
 
 import styles from "./style.module.css";
 
@@ -10,7 +10,7 @@ import styles from "./style.module.css";
 
 const WorkoutForm = () => {
     const [workoutText, setText] = useState('');
-const [workoutReps, setReps] = useState('')
+
   
     const [workoutRounds, setRounds] = React.useState(1);
     const [committedExercises, setcommittedExercises] = React.useState(0);
@@ -85,34 +85,16 @@ const [workoutReps, setReps] = useState('')
                         setRounds(parseInt(e.currentTarget.value, 10))
                     }
                 >
-{/*                     
-                    <textarea class="column"
-                        placeholder='reps'
-                        value={workoutReps}
-                        className={styles["workout-reps"]}
-                        onChange={(e) =>
-                            setReps(parseInt(e.currentTarget.value, 10))
-                        }
-                    >
-                    </textarea>
-                    <textarea class="column"
-                        placeholder='Exercise'
-                        value={workoutText}
-                        className={styles["workout-text"]}
-                        onChange={(e) =>
-                            setText(parseInt(e.currentTarget.value, 10))
-                        }
-                    ></textarea> */}
                 </input>
                 <button onClick={() => {
                     setcommittedExercises(workoutRounds);
                 }} >Add Rounds</button>
 
-                {[...Array(committedExercises)].map(
+                {/* {[...Array(committedExercises)].map(
                     (value: undefined, index: number) => (
                         <Round id={index + 1} key={index}/>
                     )
-                )}
+                )} */}
                 
 
             </form>
@@ -122,31 +104,33 @@ const [workoutReps, setReps] = useState('')
     
 };
 
-;
-const Round = ({ id }: { id: number}) => (
-    
-<div>
-    <label htmlfor={`WorkoutRounds${id}`}>Round{id}</label>
-    <input id={`WorkoutRounds${id}`} type="text"/>
-        
-    <textarea class="column"
-                        placeholder='reps'
-                        value={workoutReps}
-                        className={styles["workout-reps"]}
-                        onChange={(e) =>
-                            setReps(parseInt(e.currentTarget.value, 10))
-                        }
-                    >
-                    </textarea>
-                    <textarea class="column"
-                        placeholder='Exercise'
-                        value={workoutText}
-                        className={styles["workout-text"]}
-                        onChange={(e) =>
-                            setText(parseInt(e.currentTarget.value, 10))
-                        }
-                    ></textarea>
 
-</div>
-)
+;
+// const Round = ({ id }: { id: number}) => (
+//     const [workoutReps, workoutText, setReps, setText] = useState('');
+    
+//     <div>
+//     <label htmlfor={`WorkoutRounds${id}`}>Round{id}</label>
+//     <input id={`WorkoutRounds${id}`} type="text"/>
+        
+//     <textarea class="column"
+//                         placeholder='reps'
+//                         value={workoutReps}
+//                         className={styles["workout-reps"]}
+//                         onChange={(e) =>
+//                             setReps(parseInt(e.currentTarget.value, 10))
+//                         }
+//                     >
+//                     </textarea>
+//                     <textarea class="column"
+//                         placeholder='Exercise'
+//                         value={workoutText}
+//                         className={styles["workout-text"]}
+//                         onChange={(e) =>
+//                             setText(parseInt(e.currentTarget.value, 10))
+//                         }
+//                     ></textarea>
+
+// </div>
+// )
 export default WorkoutForm;

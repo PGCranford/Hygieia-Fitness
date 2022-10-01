@@ -64,39 +64,39 @@ const resolvers = {
             }
         },
         
-        addComment: async (parent, { workoutId, commentBody }, context) => {
-            if (context.user) {
-                const updatedWorkout = await Workout.findOneAndUpdate(
-                    { _id: workoutId },
-                    {
-                        $push: {
-                            comments: {
-                                commentBody,
-                                username: context.user.username,
-                            },
-                        },
-                    },
-                    { new: true, runValidators: true }
-                );
-                return updatedWorkout;
-            }
+        // addComment: async (parent, { workoutId, commentBody }, context) => {
+        //     if (context.user) {
+        //         const updatedWorkout = await Workout.findOneAndUpdate(
+        //             { _id: workoutId },
+        //             {
+        //                 $push: {
+        //                     comments: {
+        //                         commentBody,
+        //                         username: context.user.username,
+        //                     },
+        //                 },
+        //             },
+        //             { new: true, runValidators: true }
+        //         );
+        //         return updatedWorkout;
+        //     }
 
-            throw new AuthenticationError('You need to be logged in!');
+        //     throw new AuthenticationError('You need to be logged in!');
                                     
-        },
-        addFriend: async (parent, { friendId }, context) => {
-            if (context.user) {
-                const updatedUser = await User.findOneAndUpdate(
-                    { _id: context.user._id },
-                    { $addToSet: { friends: friendId } },
-                    { new: true }
-                ).populate('friends');
+        // },
+        // addFriend: async (parent, { friendId }, context) => {
+        //     if (context.user) {
+        //         const updatedUser = await User.findOneAndUpdate(
+        //             { _id: context.user._id },
+        //             { $addToSet: { friends: friendId } },
+        //             { new: true }
+        //         ).populate('friends');
 
-                return updatedUser;
-            }
+        //         return updatedUser;
+        //     }
 
-            throw new AuthenticationError('You need to be logged in!');
-        },
+        //     throw new AuthenticationError('You need to be logged in!');
+        // },
     },
 };
 

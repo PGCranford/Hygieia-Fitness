@@ -42,19 +42,12 @@ const WorkoutList = ({ workouts, title }) => {
                                 </Link>
 
                             </div>
-                            <div >
-                                <Link
-                                    to={`/profile/${workout.workoutRounds}`}
-                                >
-                                    {workout.workoutRounds}
-                                </Link>
-                            </div>
-                            <div className={styles["comment-section"]}>
+                            {/* <div className={styles["comment-section"]}>
                                 <Link to={`/workout/${workout._id}}`}>
                                     [//LINK TO COMMENTS]
                                 </Link>{''}
                                 commented on{comment.createdAt}
-                            </div>
+                            </div> */}
                         </div>
                     
                 ))}
