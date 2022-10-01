@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User} = require('../models');
+const { User, Workout} = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -22,6 +22,13 @@ const resolvers = {
             return User.findOne({ username })
                 .select('-__v -password')
         },
+        workouts: async (parent, { username }) => {
+            const params = username ? { username } : {};
+            return Workout.find(params).sort({ createdAt: -1 });
+          },
+          workout: async (parent, { _id }) => {
+            return Workout.findOne({ _id });
+          }
     },
 
     Mutation: {

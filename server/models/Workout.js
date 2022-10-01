@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const commentSchema = require('./Comment');
+// const commentSchema = require('./Comment');
 const dateFormat = require('../utils/dateFormat');
 
 
@@ -34,7 +34,7 @@ const workoutSchema = new Schema(
             type: String,
             required: true
         },
-        comments: [commentSchema]
+        // comments: [commentSchema]
     },
     {
         toJSON: {

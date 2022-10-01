@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
+import styles from "./style.module.css";
 
 import { useMutation } from '@apollo/client';
 import { ADD_WORKOUT } from '../../utils/mutations';
-import { QUERY_WORKOUTS,  QUERY_USER} from '../../utils/queries';
-
-import styles from "./style.module.css";
-
+import { QUERY_WORKOUTS,  QUERY_ME} from '../../utils/queries';
 
 
 const WorkoutForm = () => {
@@ -22,16 +20,16 @@ const WorkoutForm = () => {
             // could potentially not exist yet, so wrap in a try/catch
             try {
                 // update me array's cache
-                const { me } = cache.readQuery({ query: QUERY_USER});
+                const { me } = cache.readQuery({ query: QUERY_ME});
                 cache.writeQuery({
-                    query: QUERY_USER,
+                    query: QUERY_ME,
                     data: { me: { ...me, workouts: [...me.workouts, addWorkout] } },
                 });
             } catch (e) {
                 console.warn("First workout insertion by user!")
             }
 
-            // update thought array's cache
+            // update workout array's cache
             const { workouts } = cache.readQuery({ query: QUERY_WORKOUTS });
             cache.writeQuery({
                 query: QUERY_WORKOUTS,
