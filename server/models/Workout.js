@@ -5,6 +5,7 @@ const dateFormat = require('../utils/dateFormat');
 
 const workoutSchema = new Schema(
     {
+    
         workoutText: {
             type: String,
             required: 'You need to leave a workout!',

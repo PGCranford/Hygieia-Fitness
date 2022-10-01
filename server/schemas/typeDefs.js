@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // import the gql tagged template function
 const { gql } = require('apollo-server-express');
 
@@ -13,11 +13,6 @@ type Workout {
     username: String
     comments: [Comment]
 }
-
-
-`
-=======
-const { gql } = require('apollo-server-express');
 
 //check verbiage for workouts
 
@@ -59,4 +54,3 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
->>>>>>> develop

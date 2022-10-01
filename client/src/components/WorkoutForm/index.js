@@ -7,9 +7,11 @@ import { QUERY_WORKOUTS,  QUERY_USER} from '../../../utils/queries';
 import styles from "./style.module.css";
 
 
+
 const WorkoutForm = () => {
     const [workoutText, setText] = useState('');
-    const [workoutReps, setReps] = useState('');
+const [workoutReps, setReps] = useState('')
+  
     const [workoutRounds, setRounds] = React.useState(1);
     const [committedExercises, setcommittedExercises] = React.useState(0);
     const [characterCount, setCharacterCount] = useState();
@@ -38,13 +40,13 @@ const WorkoutForm = () => {
         }
     });
 
-    // update state based on form input changes
-    const handleChange = (event) => {
-        if (event.target.value.length <= 280) {
-            setText(event.target.value);
-            setCharacterCount(event.target.value.length);
-        }
-    };
+    // // update state based on form input changes
+    // const handleChange = (event) => {
+    //     if (event.target.value.length <= 280) {
+    //         setText(event.target.value);
+    //         setCharacterCount(event.target.value.length);
+    //     }
+    // };
 
     // submit form
     const handleFormSubmit = async (event) => {
@@ -74,7 +76,8 @@ const WorkoutForm = () => {
                     Character Count: {characterCount}/280
                     {error && <span className="ml-2">Something went wrong...</span>}
                 </p>
-                <textarea class="column"
+                <label> How Many Rounds? </label>
+                <input class="column"
                     placeholder='rounds'
                     value={workoutRounds}
                     className={styles["workout-rounds"]}
@@ -82,7 +85,7 @@ const WorkoutForm = () => {
                         setRounds(parseInt(e.currentTarget.value, 10))
                     }
                 >
-                    
+{/*                     
                     <textarea class="column"
                         placeholder='reps'
                         value={workoutReps}
@@ -99,8 +102,8 @@ const WorkoutForm = () => {
                         onChange={(e) =>
                             setText(parseInt(e.currentTarget.value, 10))
                         }
-                    ></textarea>
-                </textarea>
+                    ></textarea> */}
+                </input>
                 <button onClick={() => {
                     setcommittedExercises(workoutRounds);
                 }} >Add Rounds</button>
@@ -119,10 +122,30 @@ const WorkoutForm = () => {
     
 };
 
+;
 const Round = ({ id }: { id: number}) => (
+    
 <div>
     <label htmlfor={`WorkoutRounds${id}`}>Round{id}</label>
     <input id={`WorkoutRounds${id}`} type="text"/>
+        
+    <textarea class="column"
+                        placeholder='reps'
+                        value={workoutReps}
+                        className={styles["workout-reps"]}
+                        onChange={(e) =>
+                            setReps(parseInt(e.currentTarget.value, 10))
+                        }
+                    >
+                    </textarea>
+                    <textarea class="column"
+                        placeholder='Exercise'
+                        value={workoutText}
+                        className={styles["workout-text"]}
+                        onChange={(e) =>
+                            setText(parseInt(e.currentTarget.value, 10))
+                        }
+                    ></textarea>
 
 </div>
 )
