@@ -4,6 +4,7 @@
 :root {
   --main: #f01027;
   --black: #000;
+  --blue: #3f8a50;
   --white: #fff;
   --font_family: "Besley", serif;
 }
@@ -13,6 +14,7 @@
   font-family: var(--font_family);
 }
 
+/* color */
 *::selection {
   background: var(--main);
   color: var(--white) !important;
@@ -58,7 +60,7 @@
 
 .navbar-brand {
   font-size: 3em;
-  color: var(--white) !important;
+  color: var(--blue) !important;
   padding: 0px 60px;
   display: flex;
 }
@@ -76,7 +78,7 @@
 }
 
 .nav-link {
-  color: var(--white) !important;
+  color: var(--blue) !important;
   margin-left: 8px;
   font-size: 20px;
 }
@@ -121,7 +123,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: var(--white) !important;
+  color: var(--blue) !important;
   background: var(--black);
   padding: 20px;
 }
@@ -166,6 +168,6 @@ footer .container {
   font-weight: 600;
   font-size: 30px;
   margin: 20px auto;
-  color: var(--white);
+  color: var(--blue);
   text-align: center;
 }

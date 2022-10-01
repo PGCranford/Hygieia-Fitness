@@ -14,7 +14,6 @@ const Header = () => {
     };
     return (
         <>
-
             <nav className='navbar navbar-expand-sm fixed-top'>
                 <a href='/' className='navbar-brand'><span>H</span>ygieia Fitness</a>
                 {Auth.loggedIn() ? (
@@ -74,6 +73,7 @@ const Header = () => {
                     </div>
                 </div>
             </section>
+
         </>
     );
 };
