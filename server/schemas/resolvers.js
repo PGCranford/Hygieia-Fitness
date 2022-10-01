@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Workout } = require('../models');
+const { User} = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -8,8 +8,6 @@ const resolvers = {
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
                     .select('-__v -password')
-                    .populate('workouts')
-                    .populate('friends');
 
                 return userData;
             }
@@ -19,21 +17,10 @@ const resolvers = {
         users: async () => {
             return User.find()
                 .select('-__v -password')
-                .populate('workouts')
-                .populate('friends');
         },
         user: async (parent, { username }) => {
             return User.findOne({ username })
                 .select('-__v -password')
-                .populate('friends')
-                .populate('workouts');
-        },
-        workouts: async (parent, { username }) => {
-            const params = username ? { username } : {};
-            return Workout.find(params).sort({ createdAt: -1 });
-        },
-        workout: async (parent, { _id }) => {
-            return Workout.findOne({ _id });
         },
     },
 
