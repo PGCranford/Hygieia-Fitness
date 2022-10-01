@@ -1,20 +1,19 @@
-
-// import the gql tagged template function
 const { gql } = require('apollo-server-express');
 
-// create our typeDefs
+//check verbiage for workouts
+
+//deleted Type Thought (workout) and type Reaction (comment) so that Patrick and Austin could add them for their parts. 
+//They were after the type User definition
+//check lines under type Query {me: user} to make sure the verbiage for comments is correct
+//check verbiage for Workout and comments in the type Mutation to make sure correct
 const typeDefs = gql`
-
-type Workout {
+  type User {
     _id: ID
-    workoutText: String
-    workoutReps: Int
-    workoutRounds: Int
     username: String
-    # comments: [Comment]
-}
+    email: String
+  }
 
-   
+
   type Auth {
     token: ID!
     user: User
