@@ -1,31 +1,31 @@
-import NavLinks from "./NavLinks";
-import '../../App.css';
-import { GiHamburgerMenu } from 'react-icons/gi';
-import { CgCloseO } from 'react-icons/cg'
-import { useState } from "react";
+// import NavLinks from "./NavLinks";
+// import '../../App.css';
+// import { GiHamburgerMenu } from 'react-icons/gi';
+// import { CgCloseO } from 'react-icons/cg'
+// import { useState } from "react";
 
-const MobileNavigation = () => {
+// const MobileNavigation = () => {
 
-    const [open, setOpen] = useState(false);
+//     const [open, setOpen] = useState(false);
 
-    const hamburgerIcon = <GiHamburgerMenu className='hamburger'
-        onClick={() => setOpen(!open)}
-    />
+//     const hamburgerIcon = <GiHamburgerMenu className='hamburger'
+//         onClick={() => setOpen(!open)}
+//     />
 
-    const closeIcon = <CgCloseO className='hamburger'
-        onClick={() => setOpen(!open)}
-    />
+//     const closeIcon = <CgCloseO className='hamburger'
+//         onClick={() => setOpen(!open)}
+//     />
 
-    const closeMobileMenu = () => setOpen(false);
+//     const closeMobileMenu = () => setOpen(false);
 
-    return (
-        <nav className='mobileNavigation'>
-            {open ? closeIcon : hamburgerIcon}
-            {open && <NavLinks isMobile={true} closeMobileMenu={closeMobileMenu} />}
+//     return (
+//         <nav className='mobileNavigation'>
+//             {open ? closeIcon : hamburgerIcon}
+//             {open && <NavLinks isMobile={true} closeMobileMenu={closeMobileMenu} />}
 
-        </nav>
+//         </nav>
 
-    )
-}
+//     )
+// }
 
-export default MobileNavigation;
+// export default MobileNavigation;
