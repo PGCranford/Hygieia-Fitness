@@ -19,12 +19,12 @@ const workoutSchema = new Schema(
             maxlength: 540
 
         },
-        workoutRounds: {
-            type: String,
-            required: 'You need to leave a workout!',
-            minlength: 1,
-            maxlength: 540
-        },
+        // workoutRounds: {
+        //     type: String,
+        //     required: 'You need to leave a workout!',
+        //     minlength: 1,
+        //     maxlength: 540
+        // },
         createdAt: {
             type: Date,
             default: Date.now,

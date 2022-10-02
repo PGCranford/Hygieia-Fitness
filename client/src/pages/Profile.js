@@ -43,7 +43,7 @@ const Profile =(props) => {
     <div>
         <div className="profile">
             <h2 className ="profile-user">
-                Viewing{userParam ? `${user.username}'s`: 'your}'} profile.
+                Viewing {`${user.username}'s`} profile.
                 </h2>
             </div>
 
@@ -53,6 +53,8 @@ const Profile =(props) => {
             title={`${user.username}'s workouts...`}
             />
             </div>
+          <div className="new-workout">
+            {!userParam && <WorkoutForm/>} </div>
     </div>
   )
 

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import styles from "./style.module.css";
 
 const WorkoutList = ({ workouts, title }) => {
-    if (!workouts.length) {
-        return <h3>No Workouts Yet</h3>
-    }
+    // if (!workouts.length) {
+    //     return <h3>No Workouts Yet</h3>
+    // }
 
     return (
         <div>

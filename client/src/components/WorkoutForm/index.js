@@ -7,12 +7,28 @@ import { QUERY_WORKOUTS,  QUERY_ME} from '../../utils/queries';
 
 
 const WorkoutForm = () => {
-    const [workoutText, setText] = useState('');
+    const [setText, setCharacterCount, setReps, workoutText
+    ] = useState('');
 
   
     const [workoutRounds, setRounds] = React.useState(1);
     const [committedExercises, setcommittedExercises] = React.useState(0);
-    const [characterCount, setCharacterCount] = useState();
+
+    const handleFormSubmit = async (event) => {
+        // event.preventDefault();
+
+        try {
+            await addWorkout({
+                variables: { workoutText, setReps},
+            });
+
+            // clear form value
+            setText('');
+            setCharacterCount(0);
+        } catch (e) {
+            console.error(e);
+        }
+    };
 
     const [addWorkout, { error }] = useMutation(ADD_WORKOUT, {
         update(cache, { data: { addWorkout } }) {
@@ -37,46 +53,19 @@ const WorkoutForm = () => {
             });
         }
     });
+  
 
-    // // update state based on form input changes
-    // const handleChange = (event) => {
-    //     if (event.target.value.length <= 280) {
-    //         setText(event.target.value);
-    //         setCharacterCount(event.target.value.length);
-    //     }
-    // };
 
-    // submit form
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
-
-        try {
-            await addWorkout({
-                variables: { workoutText },
-            });
-
-            // clear form value
-            setText('');
-            setCharacterCount(0);
-        } catch (e) {
-            console.error(e);
-        }
-    };
 
     return (
         <div>
             <form class="columns" className={styles["workout-form"]}
-                onSubmit={handleFormSubmit}
             >
-                <p
-                    className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
-                >
-                    Character Count: {characterCount}/280
-                    {error && <span className="ml-2">Something went wrong...</span>}
-                </p>
+              
                 <label> How Many Rounds? </label>
                 <input class="column"
                     placeholder='rounds'
+                    type="number"
                     value={workoutRounds}
                     className={styles["workout-rounds"]}
                     onChange={(e) =>
@@ -84,51 +73,79 @@ const WorkoutForm = () => {
                     }
                 >
                 </input>
-                <button onClick={() => {
+                <button onClick={(event) => {
                     setcommittedExercises(workoutRounds);
+                    event.preventDefault();
                 }} >Add Rounds</button>
 
-                {/* {[...Array(committedExercises)].map(
+                {[...Array(committedExercises)].map(
                     (value: undefined, index: number) => (
                         <Round id={index + 1} key={index}/>
                     )
-                )} */}
-                
-
+                )}
+               
+            
             </form>
+            <button className="workout-add" onClick={()=>{
+                    handleFormSubmit(addWorkout)
+                }}>
+                    Add Workout</button>
         </div >
     )
     
     
 };
 
+const Round =  ({ id }: { id: number}) => {
+   
+   
+    const [characterCount, setCharacterCount] = useState();
+    // submit form
+ 
 
-;
-// const Round = ({ id }: { id: number}) => (
-//     const [workoutReps, workoutText, setReps, setText] = useState('');
+    const [workoutReps, workoutText,  setText] = useState('');
     
-//     <div>
-//     <label htmlfor={`WorkoutRounds${id}`}>Round{id}</label>
-//     <input id={`WorkoutRounds${id}`} type="text"/>
-        
-//     <textarea class="column"
-//                         placeholder='reps'
-//                         value={workoutReps}
-//                         className={styles["workout-reps"]}
-//                         onChange={(e) =>
-//                             setReps(parseInt(e.currentTarget.value, 10))
-//                         }
-//                     >
-//                     </textarea>
-//                     <textarea class="column"
-//                         placeholder='Exercise'
-//                         value={workoutText}
-//                         className={styles["workout-text"]}
-//                         onChange={(e) =>
-//                             setText(parseInt(e.currentTarget.value, 10))
-//                         }
-//                     ></textarea>
 
-// </div>
-// )
+      // update state based on form input changes
+      const handleChange = (event) => {
+        if (event.target.value.length <= 280) {
+            setText(event.target.value);
+            setCharacterCount(event.target.value.length);
+        }
+    };
+
+    return (
+
+    <div>
+          {/* <p
+                    className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
+                >
+                    Character Count: {characterCount}/280
+                    {error && <span className="ml-2">Something went wrong...</span>}
+                </p> */}
+        <label htmlfor={`round${id}`}>Round{id}</label>
+        {/* <input id={`round${id}`} type="text"/> */}
+        
+            <input class="column"
+                        type="text"
+                        placeholder='Reps'
+                        id={workoutReps}
+                        className={styles["workout-reps"]}
+                        // onChange={workoutReps}
+                    >
+                    </input>
+                    <input class="column"
+                            type="text"    
+                        placeholder='Exercise'
+                        id ={workoutText}
+                    
+                        className={styles["workout-text"]}
+                        // onChange={workoutText}
+                    ></input>
+               
+    </div> 
+    )
+    
+ }
+
 export default WorkoutForm;
