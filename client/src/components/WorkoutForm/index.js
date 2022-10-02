@@ -6,6 +6,7 @@ import { ADD_WORKOUT } from '../../utils/mutations';
 import { QUERY_WORKOUTS,  QUERY_ME} from '../../utils/queries';
 
 
+
 const WorkoutForm = () => {
     const [setText, setCharacterCount, workoutReps, workoutText
     ] = useState('');
@@ -53,24 +54,16 @@ const WorkoutForm = () => {
         } catch (e) {
             console.error(e);
         }
-    };
+        };
 
-    const newWorkout = () => {
-        
-            <h3> Would you like to add a new workout</h3>
-        <div>
-            <select>
-                 <option value="yes"> Yes</option>
-                <option value="no"> No</option>
-            </select>   
-        </div>
-        if(selectId.value==='yes') 
-        
-  
         return (
         <div>
             <form class="columns" className={styles["workout-form"]}
               onSubmit={handleFormSubmit}>
+                       <h3> New Workout Form</h3>
+        <div>
+         
+        </div>
                 <label> How Many Rounds? </label>
                 <input class="column"
                     placeholder='rounds'
@@ -96,7 +89,7 @@ const WorkoutForm = () => {
                     Add Workout</button>
             </form>
         </div >
-    )}
+        ) 
 };
 
 
