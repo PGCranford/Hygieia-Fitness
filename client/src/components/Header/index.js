@@ -1,38 +1,59 @@
+import HeaderImg from '../../images/header02.jpg'
+import custom01 from '../../images/custom01.jpg'
+import custom02 from '../../images/custom02.jpg'
+import custom03 from '../../images/custom03.jpg'
+
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Auth from '../../utils/auth';
+import MobileNavigation from '../NavBar/MobileNavigation';
+import Navigation from '../NavBar/Navigation';
 
 const Header = () => {
-  const logout = event => {
-    event.preventDefault();
-    Auth.logout();
-  };
+    return (
+        <>
+            <Navigation />
+            <MobileNavigation />
 
-  return (
-    <header className="bg-secondary mb-4 py-2 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <Link to="/">
-          <h1>Hygieia Fitness</h1>
-        </Link>
+            <div className='header'>
+                <div>
+                    <div className='img'>
+                        <img src={HeaderImg} alt='' />
+                    </div>
+                    <div className='overlay'></div>
+                </div>
+                <div className='content'>
+                    <h6>Build Your Fitness World <br /> By Building Your Body</h6>
+                    <button className='btn'>Join Now</button>
+                </div>
+            </div>
 
-        <nav className="text-center">
-          {Auth.loggedIn() ? (
-            <>
-              {/* <Link to="/profile">Me</Link> */}
-              <a href="/" onClick={logout}>
-                Logout
-              </a>
-            </>
-          ) : (
-            <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
-            </>
-          )}
-        </nav>
-      </div>
-    </header>
-  );
+            <section>
+                <div className='custom container'>
+                    <div className='row'>
+                        <div className='col-sm-4'>
+                            <div className='box'>
+                                <img src={custom01} className='img-fluid' alt='' />
+                            </div>
+                        </div>
+
+                        <div className='col-sm-4'>
+                            <div className='box'>
+                                <img src={custom02} className='img-fluid' alt='' />
+                            </div>
+                        </div>
+
+                        <div className='col-sm-4'>
+                            <div className='box'>
+                                <img src={custom03} className='img-fluid' alt='' />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </>
+
+    );
 };
+
 
 export default Header;

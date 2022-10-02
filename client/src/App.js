@@ -17,6 +17,12 @@ import NoMatch from './pages/NoMatch';
 import SingleComment from './pages/SingleComment';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
+<<<<<<< HEAD
+=======
+import Header from './components/Header';
+import Home from './pages/Home';
+import Footer from './components/Footer';
+>>>>>>> develop
 
 const httpLink = createHttpLink({
     uri: '/graphql',
@@ -31,11 +37,11 @@ const authLink = setContext((_, { headers }) => {
         },
     };
 });
-
 const client = new ApolloClient({
     link: authLink.concat(httpLink),
     cache: new InMemoryCache(),
 });
+<<<<<<< HEAD
 
 function App() {
     return (
@@ -64,3 +70,43 @@ function App() {
 }
 
 export default App;
+=======
+function App() {
+  return (
+    <ApolloProvider client={client}>
+
+      <Router>
+        <Header />
+
+        <Routes>
+          <Route
+            path="/"
+            element={<Home />}
+          />
+          <Route
+            path="/login"
+            element={<Login />}
+          />
+          <Route
+            path="/signup"
+            element={<Signup />}
+          />
+
+          {/* <Route
+                path="/workout/:id"
+                element={<SingleWorkout />}
+              /> */}
+          <Route
+            path="*"
+            element={<NoMatch />}
+          />
+        </Routes>
+
+        <Footer />
+      </Router>
+
+    </ApolloProvider>
+  );
+}
+export default App;
+>>>>>>> develop
