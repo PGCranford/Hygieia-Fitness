@@ -48,6 +48,20 @@ const resolvers = {
             return { token, user };
         },
     },
+    addComment: async (parent, { commentId, commentBody }, context) => {
+        if (context.user) {
+            const updatedComment = await Comment.findOneAndUpdate(
+                { _id: commentId },
+                { $push: { comments: { commmentBody, username: context.user.username } } },
+                { new: true, runValidators: true }
+            );
+
+            return updatedComment;
+        }
+
+        throw new AuthenticationError('User must be signed in!');
+    },
+
 };
 
 module.exports = resolvers;
