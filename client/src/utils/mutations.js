@@ -30,8 +30,8 @@ export const ADD_WORKOUT = gql`
     addWorkout(workoutText: $workoutText) {
       _id
       workoutText
-      # workoutReps
-      # workoutRounds
+      workoutReps
+      workoutRounds
       createdAt
       username
       # reactionCount

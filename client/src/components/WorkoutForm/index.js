@@ -7,32 +7,18 @@ import { QUERY_WORKOUTS,  QUERY_ME} from '../../utils/queries';
 
 
 const WorkoutForm = () => {
-    const [setText, setCharacterCount, setReps, workoutText
+    const [setText, setCharacterCount, workoutReps, workoutText
     ] = useState('');
 
-  
     const [workoutRounds, setRounds] = React.useState(1);
-    const [committedExercises, setcommittedExercises] = React.useState(0);
+    const [committedExercises, setCommittedExercises] = React.useState(0);
 
-    const handleFormSubmit = async (event) => {
-        // event.preventDefault();
 
-        try {
-            await addWorkout({
-                variables: { workoutText, setReps},
-            });
 
-            // clear form value
-            setText('');
-            setCharacterCount(0);
-        } catch (e) {
-            console.error(e);
-        }
-    };
-
+    
     const [addWorkout, { error }] = useMutation(ADD_WORKOUT, {
         update(cache, { data: { addWorkout } }) {
-
+            
             // could potentially not exist yet, so wrap in a try/catch
             try {
                 // update me array's cache
@@ -44,24 +30,47 @@ const WorkoutForm = () => {
             } catch (e) {
                 console.warn("First workout insertion by user!")
             }
-
+            
             // update workout array's cache
             const { workouts } = cache.readQuery({ query: QUERY_WORKOUTS });
             cache.writeQuery({
                 query: QUERY_WORKOUTS,
-                data: { thoughts: [addWorkout, ...workouts] },
+                data: { workouts: [addWorkout, ...workouts] },
             });
         }
     });
+        const handleFormSubmit = async (event) => {
+        // event.preventDefault();
+
+        try {
+            await addWorkout({
+                variables: { workoutText, workoutReps},
+            });
+
+            // clear form value
+            setText('');
+            setCharacterCount(0);
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+    const newWorkout = () => {
+        
+            <h3> Would you like to add a new workout</h3>
+        <div>
+            <select>
+                 <option value="yes"> Yes</option>
+                <option value="no"> No</option>
+            </select>   
+        </div>
+        if(selectId.value==='yes') 
+        
   
-
-
-
-    return (
+        return (
         <div>
             <form class="columns" className={styles["workout-form"]}
-            >
-              
+              onSubmit={handleFormSubmit}>
                 <label> How Many Rounds? </label>
                 <input class="column"
                     placeholder='rounds'
@@ -74,45 +83,38 @@ const WorkoutForm = () => {
                 >
                 </input>
                 <button onClick={(event) => {
-                    setcommittedExercises(workoutRounds);
+                    setCommittedExercises(workoutRounds);
                     event.preventDefault();
                 }} >Add Rounds</button>
 
                 {[...Array(committedExercises)].map(
                     (value: undefined, index: number) => (
                         <Round id={index + 1} key={index}/>
-                    )
-                )}
-               
-            
-            </form>
-            <button className="workout-add" onClick={()=>{
-                    handleFormSubmit(addWorkout)
-                }}>
+                        )
+                        )}
+                <button className="workout-add" type="submit">
                     Add Workout</button>
+            </form>
         </div >
-    )
-    
-    
+    )}
 };
+
 
 const Round =  ({ id }: { id: number}) => {
    
-   
     const [characterCount, setCharacterCount] = useState();
     // submit form
- 
 
     const [workoutReps, workoutText,  setText] = useState('');
     
 
       // update state based on form input changes
-      const handleChange = (event) => {
-        if (event.target.value.length <= 280) {
-            setText(event.target.value);
-            setCharacterCount(event.target.value.length);
-        }
-    };
+    //   const handleChange = (event) => {
+    //     if (event.target.value.length <= 280) {
+    //         setText(event.target.value);
+    //         setCharacterCount(event.target.value.length);
+    //     }
+    // };
 
     return (
 
@@ -123,9 +125,9 @@ const Round =  ({ id }: { id: number}) => {
                     Character Count: {characterCount}/280
                     {error && <span className="ml-2">Something went wrong...</span>}
                 </p> */}
-        <label htmlfor={`round${id}`}>Round{id}</label>
+        <label htmlFor={`round${id}`}>Round{id}</label>
         {/* <input id={`round${id}`} type="text"/> */}
-        
+        <form>
             <input class="column"
                         type="text"
                         placeholder='Reps'
@@ -142,7 +144,7 @@ const Round =  ({ id }: { id: number}) => {
                         className={styles["workout-text"]}
                         // onChange={workoutText}
                     ></input>
-               
+            </form>
     </div> 
     )
     

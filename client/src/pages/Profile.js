@@ -20,6 +20,7 @@ const Profile =(props) => {
     });
 
     const user = data?.me || data?.user || {};
+    const workouts=data?.workouts
 
   // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -46,15 +47,19 @@ const Profile =(props) => {
                 Viewing {`${user.username}'s`} profile.
                 </h2>
             </div>
+          <div className="new-workout">
+            {!userParam && <WorkoutForm/>} 
+          </div>
 
-        <div className="profile-workout">
+          <div className="profile-workout">
             <WorkoutList 
-            workouts={user.workout}
+            workouts={workouts}
             title={`${user.username}'s workouts...`}
             />
+          </div>
+          <div class="box">
+            I'm going to be workouts
             </div>
-          <div className="new-workout">
-            {!userParam && <WorkoutForm/>} </div>
     </div>
   )
 

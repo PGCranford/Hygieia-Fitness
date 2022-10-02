@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from "./style.module.css";
+import { useQuery } from '@apollo/client';
+import {QUERY_WORKOUTS} from '../../utils/queries'
 
-const WorkoutList = ({ workouts, title }) => {
+const WorkoutList = ({ title}) => {
+    const { loading, data } = useQuery(QUERY_WORKOUTS);
+    const workouts = data?.workouts || []
+
+   
     // if (!workouts.length) {
     //     return <h3>No Workouts Yet</h3>
     // }
@@ -21,12 +27,18 @@ const WorkoutList = ({ workouts, title }) => {
                                 {workout.username}
                             </Link>{''}
                         </p>
-                        <div> 
+                        <div className="card-body">
+                        <Link to={`/workout/${workout._id}`}>
+                            <p>{workout.workoutText}</p>
+
+                        </Link>
+                        </div>
+                            {/* <div> 
                             <Link
                             to={`profile/${workout.workoutRounds}`}
                             >
                             </Link>
-                        </div >
+                            </div >
                             <div>
                                 <Link
                                     to={`/profile/${workout.workoutReps}`}
@@ -41,16 +53,18 @@ const WorkoutList = ({ workouts, title }) => {
                                     {workout.workoutText}
                                 </Link>
 
-                            </div>
+                            </div>  */}
                             {/* <div className={styles["comment-section"]}>
                                 <Link to={`/workout/${workout._id}}`}>
                                     [//LINK TO COMMENTS]
                                 </Link>{''}
                                 commented on{comment.createdAt}
                             </div> */}
-                        </div>
+                    </div>
+                   
                     
-                ))}
+                ),
+            )}
         </div>
     );
 };
