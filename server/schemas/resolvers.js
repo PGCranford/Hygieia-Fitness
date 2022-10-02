@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User} = require('../models');
+const { User } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -22,6 +22,14 @@ const resolvers = {
             return User.findOne({ username })
                 .select('-__v -password')
         },
+        comment: async (parent, { username }) => {
+            const params = username ? { username } : {};
+            return Comment.find(params).sort({ createdAt: -1 });
+        },
+        comment: async (parent, { _id }) => {
+            return Comment.findOne({ _id });
+        }
+
     },
 
     Mutation: {
@@ -47,21 +55,21 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
+        addComment: async (parent, { commentId, commentBody }, context) => {
+            if (context.user) {
+                const updatedComment = await Comment.findOneAndUpdate(
+                    { _id: commentId },
+                    { $push: { comments: { commmentBody, username: context.user.username } } },
+                    { new: true, runValidators: true }
+                );
+
+                return updatedComment;
+            }
+
+            throw new AuthenticationError('User must be signed in!');
+
+        },
     },
-    addComment: async (parent, { commentId, commentBody }, context) => {
-        if (context.user) {
-            const updatedComment = await Comment.findOneAndUpdate(
-                { _id: commentId },
-                { $push: { comments: { commmentBody, username: context.user.username } } },
-                { new: true, runValidators: true }
-            );
-
-            return updatedComment;
-        }
-
-        throw new AuthenticationError('User must be signed in!');
-    },
-
 };
 
-module.exports = resolvers;
+    module.exports = resolvers;
