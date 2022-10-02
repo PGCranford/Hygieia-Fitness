@@ -13,7 +13,11 @@ import NoMatch from './pages/NoMatch';
 import Signup from './pages/Signup';
 import Header from './components/Header';
 import Home from './pages/Home';
+<<<<<<< HEAD
 import Profile from './pages/Profile'
+=======
+import Footer from './components/Footer';
+>>>>>>> develop
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -29,50 +33,45 @@ const authLink = setContext((_, { headers }) => {
     },
   };
 });
-
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-
-
-//Note how we wrap the entire returning JSX code with <ApolloProvider>. 
-//Because we're passing the client variable in as the value for the client prop in the provider, 
-//everything between the JSX tags will eventually have access to the server's API data through the client we set up
 function App() {
   return (
     <ApolloProvider client={client}>
+
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
-          <div className="container">
-            <Routes>
-              <Route
-                path="/"
-                element={<Home />}
-              />
-              <Route
-                path="/login"
-                element={<Login />}
-              />
-              <Route
-                path="/signup"
-                element={<Signup />}
-              />
-              <Route 
-                path="/profile" 
-                element={<Profile />} 
-              />
-              <Route
-                path="*"
-                element={<NoMatch />}
-              />
-            </Routes>
-          </div>
-        </div>
+        <Header />
+
+        <Routes>
+          <Route
+            path="/"
+            element={<Home />}
+          />
+          <Route
+            path="/login"
+            element={<Login />}
+          />
+          <Route
+            path="/signup"
+            element={<Signup />}
+          />
+
+          {/* <Route
+                path="/workout/:id"
+                element={<SingleWorkout />}
+              /> */}
+          <Route
+            path="*"
+            element={<NoMatch />}
+          />
+        </Routes>
+
+        <Footer />
       </Router>
+
     </ApolloProvider>
   );
 }
-
 export default App;
