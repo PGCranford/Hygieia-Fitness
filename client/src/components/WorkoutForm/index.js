@@ -41,7 +41,7 @@ const WorkoutForm = () => {
         }
     });
         const handleFormSubmit = async (event) => {
-        // event.preventDefault();
+        event.preventDefault();
 
         try {
             await addWorkout({
@@ -61,16 +61,8 @@ const WorkoutForm = () => {
         <div  className={styles["workout-form"]}>
             <form
               onSubmit={handleFormSubmit}>
-                       <h3 className={styles["workout-title"]}> New Workout Form</h3>
-                <div className="select">
-                        <h3 className={styles["workout-prompt"]}>Would you like to add a new workout</h3>
-                    <select className={styles["workout-select"]}>
-                        <option>YES</option>
-                        <option>NO</option>
-                    </select>
-                </div>
-            
-        
+                       <h3 className={styles["workout-title"]}> New Workout Form</h3>            
+            <div>
                 <label   className={styles["workout-rounds"]}> How Many Rounds? </label>
                 <input className={styles["workout-input"]}
                     placeholder='rounds'
@@ -95,18 +87,84 @@ const WorkoutForm = () => {
                 <button className={styles["workout-add"]} type="submit">
                     Add Workout</button>
                     </div>
+            </div>
             </form>
         </div >
         ) 
 };
 
 
+// const newWorkout extends React.Component{
+//     constructor(props) {
+//         super(props);
+//         this.state = {value: 'coconut'};
+    
+//         this.handleChange = this.handleChange.bind(this);
+//         this.handleSubmit = this.handleSubmit.bind(this);
+//       }
+//       handleChange(event) {
+//         this.setState({value: event.target.value});
+//       }
+
+//       render()
+//       return(
+//         <form onSubmit={this.handleSubmit}>
+//         <div className="select">
+//                         <h3 className={styles["workout-prompt"]}>Would you like to add a new workout</h3>
+//              <div className="select"  value={this.state.value} onChange={this.handleChange}>
+//                     <select className={styles["workout-select"]}>
+//                         <option value="yes" id="yes">YES</option>
+//                         <option value="no" id="no">NO</option>
+//                     </select>
+//              </div>
+//          </div>
+//          </form>
+
+//       )
+
+
+
+//     if(selectId.value=yes)
+//     return (
+//         <div>
+//         <label   className={styles["workout-rounds"]}> How Many Rounds? </label>
+//         <input className={styles["workout-input"]}
+//             placeholder='rounds'
+//             type="number"
+//             value={workoutRounds}
+//             onChange={(e) =>
+//                 setRounds(parseInt(e.currentTarget.value, 10))
+//             }
+//         >
+//         </input>
+//         <div className={styles["workout-buttons"]}>
+//         <button className={styles["rounds-button"]} onClick={(event) => {
+//             setCommittedExercises(workoutRounds);
+//             event.preventDefault();
+//         }} >Add Rounds</button>
+
+//         {[...Array(committedExercises)].map(
+//             (value: undefined, index: number) => (
+//                 <Round id={index + 1} key={index}/>
+//                 )
+//                 )}
+//         <button className={styles["workout-add"]} type="submit">
+//             Add Workout</button>
+//             </div>
+//     </div>
+//     )
+
+
+// };
+
 const Round =  ({ id }: { id: number}) => {
    
-    const [characterCount, setCharacterCount] = useState();
+    const [characterCount, setCharacterCount] = useState('');
     // submit form
 
-    const [workoutReps, workoutText, workoutName, setText] = useState('');
+    const [workoutReps,  setWorkoutReps] = useState('');
+    const [workoutText, setWorkoutText]= useState('');
+    const [ workoutName, setWorkoutName] = useState('');
     
 
       // update state based on form input changes
@@ -129,30 +187,33 @@ const Round =  ({ id }: { id: number}) => {
         <label  className={styles["workout-round"]} htmlFor={`round${id}`}>Round  {id}</label>
         {/* <input id={`round${id}`} type="text"/> */}
         <form>
-        <input class="column"
+        <input className="column"
                             type="text"    
                         placeholder='Workout Name'
                         id ={workoutName}
+                        value= {workoutName}
                     
                         className={styles["workout-text"]}
-                        // onChange={workoutText}
+                        onChange={ (event) => setWorkoutName(event.target.value)}
                     ></input>
 
-            <input class="column"
+            <input className="column"
                         type="text"
                         placeholder='Reps'
                         id={workoutReps}
                         className={styles["workout-reps"]}
-                        // onChange={workoutReps}
+                        onChange={ (event) => setWorkoutReps(event.target.value)}
+                        value= {workoutReps}
                     >
                     </input>
-                    <input class="column"
+                    <input className="column"
                             type="text"    
                         placeholder='Exercise'
                         id ={workoutText}
                     
                         className={styles["workout-text"]}
-                        // onChange={workoutText}
+                        onChange={ (event) => setWorkoutText(event.target.value)}
+                        value= {workoutText}
                     ></input>
             </form>
     </div> 
