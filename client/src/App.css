@@ -134,5 +134,7 @@ footer .foot {
 
 main {
   margin-top: 10%;
-  margin-left: 30%
+  margin-left: 30%;
+  height: 100%;
+  width: 100%;
 }

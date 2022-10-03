@@ -42,8 +42,8 @@ const Profile =(props) => {
 
   return(
     <div>
-        <div className="profile">
-            <h2 className ="profile-user">
+        <div className="profile ">
+            <h2 className ="profile-user has-text-centered" >
                 Viewing {`${user.username}'s`} profile.
                 </h2>
             </div>

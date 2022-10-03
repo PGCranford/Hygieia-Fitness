@@ -134,19 +134,3 @@
     font-size: 40px;
     cursor: pointer; */
 }
-
-/* Footer */
-footer {
-    background: var(--black);
-    position: absolute;
-    width: 100%;
-
-}
-
-footer .foot {
-    font-weight: 600;
-    font-size: 30px;
-    margin: 20px auto;
-    color: var(--green);
-    text-align: center;
-}
