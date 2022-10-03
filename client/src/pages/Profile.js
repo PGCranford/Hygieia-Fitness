@@ -41,25 +41,25 @@ const Profile =(props) => {
   }
 
   return(
-    <div>
-        <div className="profile ">
-            <h2 className ="profile-user has-text-centered" >
-                Viewing {`${user.username}'s`} profile.
-                </h2>
+    <div className= "columns ">
+        <div className="profile column ">
+            <h2 className="profile-user columns is-centered" >
+               {`${user.username}'s`} profile.
+            </h2>
             </div>
-          <div className="new-workout">
-            {!userParam && <WorkoutForm/>} 
-          </div>
 
           <div className="profile-workout">
             <WorkoutList 
             workouts={workouts}
             title={`${user.username}'s workouts...`}
             />
-          </div>
-          <div class="box">
+          <div className="column is-centered">
             I'm going to be workouts
             </div>
+          </div>
+          <div className="new-workout  column is-centered">
+            {!userParam && <WorkoutForm/>} 
+          </div>
     </div>
   )
 

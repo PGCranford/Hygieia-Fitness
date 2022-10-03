@@ -115,6 +115,31 @@
   transform: scale(1.1);
 }
 
+.profile {
+  padding-top: 12rem;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-user {
+  display: flex;
+  justify-content: center;
+
+}
+
+.profile-workout {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+}
+
+.new-workout {
+  display: flex;
+  justify-content: center;
+
+
+}
+
 /* Footer */
 footer {
   background: var(--black);

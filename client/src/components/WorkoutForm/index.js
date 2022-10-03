@@ -57,25 +57,25 @@ const WorkoutForm = () => {
         };
 
         return (
-        <div>
-            <form class="columns" className={styles["workout-form"]}
+        <div  className={styles["workout-form"]}>
+            <form className="columns"
               onSubmit={handleFormSubmit}>
                        <h3> New Workout Form</h3>
-        <div>
+    
          
-        </div>
-                <label> How Many Rounds? </label>
-                <input class="column"
+        
+                <label   className={styles["workout-rounds"]}> How Many Rounds? </label>
+                <input className={styles["workout-input"]}
                     placeholder='rounds'
                     type="number"
                     value={workoutRounds}
-                    className={styles["workout-rounds"]}
                     onChange={(e) =>
                         setRounds(parseInt(e.currentTarget.value, 10))
                     }
                 >
                 </input>
-                <button onClick={(event) => {
+                <div className={styles["workout-buttons"]}>
+                <button className={styles["rounds-button"]} onClick={(event) => {
                     setCommittedExercises(workoutRounds);
                     event.preventDefault();
                 }} >Add Rounds</button>
@@ -85,8 +85,9 @@ const WorkoutForm = () => {
                         <Round id={index + 1} key={index}/>
                         )
                         )}
-                <button className="workout-add" type="submit">
+                <button className={styles["workout-add"]} type="submit">
                     Add Workout</button>
+                    </div>
             </form>
         </div >
         ) 
@@ -118,7 +119,7 @@ const Round =  ({ id }: { id: number}) => {
                     Character Count: {characterCount}/280
                     {error && <span className="ml-2">Something went wrong...</span>}
                 </p> */}
-        <label htmlFor={`round${id}`}>Round{id}</label>
+        <label  className={styles["workout-round"]} htmlFor={`round${id}`}>Round{id}</label>
         {/* <input id={`round${id}`} type="text"/> */}
         <form>
             <input class="column"
