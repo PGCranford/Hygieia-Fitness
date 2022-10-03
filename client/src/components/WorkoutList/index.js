@@ -19,7 +19,7 @@ const WorkoutList = ({ title}) => {
             {workouts &&
                 workouts.map(workout => (
                     <div key={(workout.id)}  >
-                        <p >
+                        <p className={styles["workout-title"]}>
                             <Link
                                 to={`/profile/${workout.username}`}
                                 className={styles["workout-user"]}

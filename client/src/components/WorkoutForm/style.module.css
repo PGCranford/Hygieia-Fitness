@@ -5,9 +5,28 @@
     align-items: center;
     flex-direction: column;
     width: 20%;
-
 }
 
+.workout-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.workout-prompt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.workout-select {
+    display: flex;
+    justify-content: center;
+
+
+}
 
 .workout-rounds {
 
@@ -19,8 +38,9 @@
 .workout-input {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 22%;
-    margin-left: 5rem;
+
 }
 
 

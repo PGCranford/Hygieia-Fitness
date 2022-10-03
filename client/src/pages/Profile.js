@@ -49,11 +49,13 @@ const Profile =(props) => {
             </div>
 
           <div className="profile-workout">
+            <div className="profile-title">
             <WorkoutList 
             workouts={workouts}
             title={`${user.username}'s workouts...`}
             />
-          <div className="column is-centered">
+            </div>
+          <div className="workout-title column is-centered">
             I'm going to be workouts
             </div>
           </div>

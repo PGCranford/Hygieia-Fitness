@@ -56,13 +56,20 @@ const WorkoutForm = () => {
         }
         };
 
+
         return (
         <div  className={styles["workout-form"]}>
-            <form className="columns"
+            <form
               onSubmit={handleFormSubmit}>
-                       <h3> New Workout Form</h3>
-    
-         
+                       <h3 className={styles["workout-title"]}> New Workout Form</h3>
+                <div className="select">
+                        <h3 className={styles["workout-prompt"]}>Would you like to add a new workout</h3>
+                    <select className={styles["workout-select"]}>
+                        <option>YES</option>
+                        <option>NO</option>
+                    </select>
+                </div>
+            
         
                 <label   className={styles["workout-rounds"]}> How Many Rounds? </label>
                 <input className={styles["workout-input"]}
@@ -99,7 +106,7 @@ const Round =  ({ id }: { id: number}) => {
     const [characterCount, setCharacterCount] = useState();
     // submit form
 
-    const [workoutReps, workoutText,  setText] = useState('');
+    const [workoutReps, workoutText, workoutName, setText] = useState('');
     
 
       // update state based on form input changes
@@ -119,9 +126,18 @@ const Round =  ({ id }: { id: number}) => {
                     Character Count: {characterCount}/280
                     {error && <span className="ml-2">Something went wrong...</span>}
                 </p> */}
-        <label  className={styles["workout-round"]} htmlFor={`round${id}`}>Round{id}</label>
+        <label  className={styles["workout-round"]} htmlFor={`round${id}`}>Round  {id}</label>
         {/* <input id={`round${id}`} type="text"/> */}
         <form>
+        <input class="column"
+                            type="text"    
+                        placeholder='Workout Name'
+                        id ={workoutName}
+                    
+                        className={styles["workout-text"]}
+                        // onChange={workoutText}
+                    ></input>
+
             <input class="column"
                         type="text"
                         placeholder='Reps'
