@@ -11,8 +11,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
 import Signup from './pages/Signup';
+import Profile from './pages/Profile';
 import Header from './components/Header';
-import Home from './pages/Home';
+import Homepage from './components/Homepage';
 import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
@@ -43,7 +44,11 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Home />}
+            element={<Homepage />}
+          />
+          <Route
+            path="/profile"
+            element={<Profile />}
           />
           <Route
             path="/login"

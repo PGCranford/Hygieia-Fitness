@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Besley:ital@1&display=swap');
+
+/* Global Variable */
+:root {
+    --main: #f01027;
+    --black: #000;
+    --green: #3f8a50;
+    --white: #fff;
+    --font_family: "Besley", serif;
+}
+
+
+* {
+    transition: 0.3s;
+    font-family: var(--font_family);
+}
+
+/* color */
+*::selection {
+    background: var(--main);
+    color: var(--white) !important;
+}
+
+.btn {
+    width: 300px;
+    border: 2px solid var(--main);
+    color: var(--main) !important;
+    border-radius: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.btn:hover {
+    color: var(--white) !important;
+}
+
+.btn::after {
+    content: "";
+    background: var(--main);
+    display: block;
+    position: absolute;
+    height: 100%;
+    z-index: -1;
+    width: 0px;
+    top: 0;
+    border-radius: 15px;
+    left: 0;
+    transition: 0.3s;
+}
+
+.btn:hover::after {
+    width: 100%;
+}
+
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.navbar-toggler {
+    background-color: var(--green);
+}
+
+.navbar-brand {
+    font-size: 2em;
+    color: var(--green) !important;
+    padding: 0px 60px;
+    display: flex;
+}
+
+.navbar-brand span {
+    font-size: 1.6em;
+    color: var(--main) !important;
+    font-weight: 600;
+    margin-top: -20px;
+}
+
+.navbar-nav {
+    padding: 0px 60px;
+    margin-top: 0px;
+}
+
+.nav-link {
+    color: var(--green) !important;
+    margin-left: 8px;
+    font-size: 20px;
+}
+
+.nav-link::after {
+    content: "";
+    background: var(--main);
+    height: 2px;
+    width: 0px;
+    display: block;
+    position: absolute;
+}
+
+.nav-link:hover {
+    color: var(--main) !important;
+}
+
+/* Footer */
+footer {
+    background: var(--black);
+    position: absolute;
+    width: 100%;
+
+}
+
+footer .foot {
+    font-weight: 600;
+    font-size: 30px;
+    margin: 20px auto;
+    color: var(--green);
+    text-align: center;
+}
