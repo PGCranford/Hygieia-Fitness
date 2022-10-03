@@ -11,6 +11,7 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+    comment: [Comment]
   }
 
 
@@ -23,11 +24,20 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
+    comment(username: String): [Comment]
+  }
+
+  type Comment {
+    _id: ID
+    reactionBody: String
+    createdAt: String
+    username: String
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    addComment(commentId: ID!, commentBody: String!): Comment
   }
 `;
 
