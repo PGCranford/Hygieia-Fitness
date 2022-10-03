@@ -86,11 +86,30 @@
 }
 
 .header .content h6 {
-  font-size: 50px;
+  font-size: 30px;
 }
 
 .header .btn {
   margin-top: 30px;
+}
+
+.col-12 {
+  margin-top: 60%;
+  margin-right: 60%;
+  align-content: center;
+}
+
+.card {
+  margin-right: 50px;
+}
+
+.card-body {
+  padding-left: 2px;
+}
+
+.btn {
+  top: 10px;
+  left: 5px;
 }
 
 /* Custom Section */
@@ -126,7 +145,7 @@ footer {
 
 footer .foot {
   font-weight: 600;
-  font-size: 30px;
+  font-size: 2em;
   margin: 20px auto;
   color: var(--green);
   text-align: center;
