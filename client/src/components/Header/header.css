@@ -62,8 +62,12 @@
 
 }
 
+.navbar-toggler {
+    background-color: var(--green);
+}
+
 .navbar-brand {
-    font-size: 3em;
+    font-size: 2em;
     color: var(--green) !important;
     padding: 0px 60px;
     display: flex;
@@ -100,39 +104,18 @@
     color: var(--main) !important;
 }
 
-@media (max-width: 990px) {
-    /* .navigation {
-        display: none;
-    }
-
-    .mobileNavigation {
-        display: flex;
-
-    }
-
-    .navbar-nav {
-        position: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 40px;
-        right: 0;
-        background: var(--black)
-    }
-
-    .navbar {
-        opacity: 1;
-    }
-
-    .nav-link a:hover {
-        color: var(--main);
-    }
+/* Footer */
+footer {
+    background: var(--black);
+    position: absolute;
+    width: 100%;
 
 }
 
-.hamburger {
-    position: relative;
-    left: 80%;
+footer .foot {
+    font-weight: 600;
+    font-size: 30px;
+    margin: 20px auto;
     color: var(--green);
-    font-size: 40px;
-    cursor: pointer; */
+    text-align: center;
 }
