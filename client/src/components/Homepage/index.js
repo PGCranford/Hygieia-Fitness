@@ -1,10 +1,16 @@
 import HeaderImg from '../../images/header02.jpg'
 import custom01 from '../../images/custom01.jpg'
+import { useNavigate } from 'react-router-dom';
+
 import custom02 from '../../images/custom02.jpg'
 import custom03 from '../../images/custom03.jpg'
 import '../../App.css'
 
 const Homepage = () => {
+    const navigate = useNavigate();
+    const login = () => {
+        navigate("/login");
+    }
     return (
         <>
             <div className='header'>
@@ -16,7 +22,7 @@ const Homepage = () => {
                 </div>
                 <div className='content'>
                     <h6>Build Your Fitness World <br /> By Building Your Body</h6>
-                    <button className='btn'>Join Now</button>
+                    <button className='btn' onClick={login}>Join Now</button>
                 </div>
             </div>
 
