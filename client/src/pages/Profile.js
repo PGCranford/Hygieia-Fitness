@@ -38,7 +38,7 @@ const Profile = (props) => {
       </h4>
     );
   }
-
+  console.log("testing");
   return (
     <div className="columns ">
       <div className="profile column ">

@@ -1,0 +1,11 @@
+.workout-form {
+  display: flex;
+  justify-content: center;
+  font-size: 5rem;
+}
+
+.workout-title {
+  display: flex;
+  justify-content: center;
+  font-size: 5rem;
+}

@@ -16,13 +16,14 @@ const WorkoutList = ({ workouts, title }) => {
             <p className={styles["workout-title"]}>
               <Link
                 to={`/profile/${workout.username}`}
+                style={{ fontWeight: 700 }}
                 className={styles["workout-user"]}
               >
                 {workout.username}
               </Link>
               {""}
             </p>
-            <div className="card-body">
+            <div className={styles["workout-text"]}>
               <Link to={`/workout/${workout._id}`}>
                 <p>{workout.workoutText}</p>
               </Link>

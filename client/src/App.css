@@ -132,6 +132,22 @@
   transform: scale(1.1);
 }
 
+.profile {
+  font-size: 14rem;
+}
+
+.profile-user {
+  display: flex;
+  justify-content: center;
+  font-size: 8rem;
+}
+
+.new-workout {
+  display: flex;
+  justify-content: center;
+  font-size: 8rem;
+}
+
 /* Footer */
 footer {
   background: var(--black);
