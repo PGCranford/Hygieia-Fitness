@@ -43,7 +43,7 @@ function App() {
 
         <Routes>
           <Route
-            path="/Homepage"
+            path="/"
             element={<Homepage />}
           />
           <Route
