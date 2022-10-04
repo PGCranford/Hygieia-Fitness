@@ -1,27 +1,22 @@
-
 // import the gql tagged template function
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 // create our typeDefs
 const typeDefs = gql`
-
-type User {
+  type User {
     _id: ID
     username: String
     email: String
   }
 
-type Workout {
+  type Workout {
     _id: ID
     workoutText: String
-    # workoutReps: Int
-    # workoutRounds: Int
     username: String
     # comments: [Comment]
-}
+  }
 
-
-type Auth {
+  type Auth {
     token: ID!
     user: User
   }
@@ -29,16 +24,14 @@ type Auth {
     me: User
     users: [User]
     user(username: String!): User
-    workouts(username: String):[Workout]
-    workout(_id: ID!):Workout
-
+    workouts(username: String): [Workout]
+    workout(_id: ID!): Workout
   }
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addWorkout(workoutText:String!):Workout
+    addWorkout(workoutText: String!): Workout
   }
-
 `;
 
 module.exports = typeDefs;

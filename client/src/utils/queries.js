@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_USER = gql`
   query user($username: String!) {
@@ -10,54 +10,48 @@ export const QUERY_USER = gql`
   }
 `;
 
-
 export const QUERY_WORKOUTS = gql`
-    query workouts($username: String){
-        workouts(username: $username){
-            _id
-            workoutText
-            # workoutReps
-            # workoutRounds
-            createdAt
-            username
-            # commentCount
-            # comments{
-            #     _id
-            #     createdAt
-            #     username
-            #     commentBody
-            # }
-        }
+  query workouts($username: String) {
+    workouts(username: $username) {
+      _id
+      workoutText
+      createdAt
+      username
+      # commentCount
+      # comments{
+      #     _id
+      #     createdAt
+      #     username
+      #     commentBody
+      # }
     }
+  }
 `;
 
 export const QUERY_WORKOUT = gql`
-    query workout($id: ID!){
-        workouts(_id: $id){
-            _id
-            workoutText
-            workoutReps
-            workoutRounds
-            createdAt
-            username
-            # commentCount
-            # comments{
-            #     _id
-            #     createdAt
-            #     username
-            #     commentBody
-            # }
-        }
+  query workout($id: ID!) {
+    workouts(_id: $id) {
+      _id
+      workoutText
+      createdAt
+      username
+      # commentCount
+      # comments{
+      #     _id
+      #     createdAt
+      #     username
+      #     commentBody
+      # }
     }
+  }
 `;
 
 export const QUERY_ME = gql`
-{
- me{
-    _id
-    username
-    email
- }
-
-}
-`
+  {
+    me {
+      _id
+      username
+      email
+    }
+  }
+`;
