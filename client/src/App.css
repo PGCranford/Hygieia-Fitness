@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Besley:ital@1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Besley:ital@1&display=swap");
 
 /* Global Variable */
 :root {
@@ -8,7 +8,6 @@
   --white: #fff;
   --font_family: "Besley", serif;
 }
-
 
 * {
   transition: 0.3s;
@@ -51,7 +50,6 @@
 .btn:hover::after {
   width: 100%;
 }
-
 
 /* Header */
 .header {
@@ -134,54 +132,11 @@
   transform: scale(1.1);
 }
 
-.profile {
-  padding-top: 1rem;
-  display: flex;
-  justify-content: center;
-}
-
-.profile-user {
-  display: flex;
-  justify-content: center;
-  font-size: .5rem;
-
-}
-
-.profile-workout {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-self: center;
-}
-
-.profile-title {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-self: center;
-
-}
-
-.workout-title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-self: center;
-}
-
-.new-workout {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
 /* Footer */
 footer {
   background: var(--black);
   position: absolute;
   width: 100%;
-
-
 }
 
 footer .foot {
