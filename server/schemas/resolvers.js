@@ -1,5 +1,4 @@
 const { AuthenticationError } = require('apollo-server-express');
-// const { default: ThoughtList } = require('../../client/src/components/ThoughtList');
 const { User, Workout} = require('../models');
 const { signToken } = require('../utils/auth');
 
@@ -62,7 +61,7 @@ const resolvers = {
             if(context.user){
                 const workout = await Workout.create({...args, username: context.user.username});
 
-                await User.findbyIdAndUpdate (
+                await User.findByIdAndUpdate (
                     {_id: context.user._id},
                     {$push: {workouts: workout._id }},
                     {new: true}
