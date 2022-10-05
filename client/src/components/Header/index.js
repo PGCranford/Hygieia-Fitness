@@ -12,9 +12,7 @@ const Header = () => {
     const [open, setOpen] = useState(false)
 
     useEffect(() => {
-        if (!open) {
-            document.getElementById("close-button").click()
-        }
+
     }, [open]);
 
     const logout = event => {
@@ -44,16 +42,16 @@ const Header = () => {
                 ) : (
 
                     <>
-                        <label onClick={() => setOpen(true)} id="close-button" htmlFor="nav" className="nav-btn">
-                            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                            <Navbar.Collapse id="basic-navbar-nav">
-                                <Nav className="me-auto">
-                                    <Link onClick={() => setOpen(false)} className='nav-link' to="/">Home</Link>
-                                    <Link onClick={() => setOpen(false)} className='nav-link' to="/login">Login</Link>
-                                    <Link onClick={() => setOpen(false)} className='nav-link' to="/signup">Signup</Link>
-                                </Nav>
-                            </Navbar.Collapse>
-                        </label>
+                        <Navbar.Brand onClick={() => setOpen(false)} id="close-button" htmlFor="nav" className="nav-btn"></Navbar.Brand>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav className="me-auto">
+                                <Nav.Link onClick={() => setOpen(false)} className='nav-link' aria-controls="basic-navbar-nav" href="/">Home</Nav.Link>
+                                <Nav.Link onClick={() => setOpen(false)} className='nav-link' aria-controls="basic-navbar-nav" href="/login">Login</Nav.Link>
+                                <Nav.Link onClick={() => setOpen(false)} className='nav-link' aria-controls="basic-navbar-nav" href="/signup">Signup</Nav.Link>
+                            </Nav>
+                        </Navbar.Collapse>
+
                     </>
                 )};
 
