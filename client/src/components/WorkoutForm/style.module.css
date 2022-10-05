@@ -1,0 +1,27 @@
+.workout-form {
+  display: flex;
+  justify-content: center;
+  font-size: 5rem;
+}
+
+.workout-title {
+  display: flex;
+  justify-content: center;
+  font-size: 5rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.workout-input {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5rem;
+  width: 80%;
+}
+
+.form-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  width: 15rem;
+}

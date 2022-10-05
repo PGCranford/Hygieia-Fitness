@@ -20,13 +20,13 @@ const Signup = () => {
   // submit form
   const handleFormSubmit = async event => {
     event.preventDefault();
-  
+
     // use try/catch instead of promises to handle errors
     try {
       const { data } = await addUser({
         variables: { ...formState }
       });
-    
+
       Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
@@ -34,8 +34,9 @@ const Signup = () => {
   };
 
   return (
-    <main className='flex-row justify-center mb-4'>
-      <div className='col-12 col-md-6'>
+    <main className='flex-row justify-center mb-4' style={{ "height": "70vh" }}>
+      <div className='col-12 col-md-6'
+        style={{ "margin-top": "10vh" }}>
         <div className='card'>
           <h4 className='card-header'>Sign Up</h4>
           <div className='card-body'>
