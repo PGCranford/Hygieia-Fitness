@@ -7,12 +7,14 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+    workouts: [Workout]
   }
 
   type Workout {
     _id: ID
     workoutText: String
     username: String
+    createdAt: String
     # comments: [Comment]
   }
 
@@ -24,7 +26,7 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    workouts(username: String): [Workout]
+    workouts: [Workout]
     workout(_id: ID!): Workout
   }
   type Mutation {

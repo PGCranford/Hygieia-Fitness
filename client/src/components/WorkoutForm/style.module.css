@@ -8,4 +8,12 @@
   display: flex;
   justify-content: center;
   font-size: 5rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.workout-input {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5rem;
+  width: 80%;
 }

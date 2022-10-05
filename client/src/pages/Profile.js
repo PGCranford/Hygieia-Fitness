@@ -20,6 +20,7 @@ const Profile = (props) => {
 
   const user = data?.me || data?.user || {};
   const workouts = data?.workouts;
+  console.log(workouts);
 
   // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -43,7 +44,7 @@ const Profile = (props) => {
     <div className="columns ">
       <div className="profile column ">
         <h2 className="profile-user columns is-centered">
-          {`${user.username}'s`} profile.
+          {`${user.username}'s`} health journey...
         </h2>
       </div>
 
@@ -55,9 +56,7 @@ const Profile = (props) => {
           />
         </div>
       </div>
-      <div className="new-workout  column is-centered">
-        {!userParam && <WorkoutForm />}
-      </div>
+      <div className="new-workout  column is-centered">{<WorkoutForm />}</div>
     </div>
   );
 };

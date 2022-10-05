@@ -19,6 +19,7 @@ import Profile from "./pages/Profile";
 import Header from "./components/Header";
 import Homepage from "./components/Homepage";
 import Footer from "./components/Footer";
+import SingleWorkout from "./pages/singleWorkout";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -49,11 +50,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/profile" element={<Profile />} />
-          {/* <Route
-                path="/workout/:id"
-                element={<SingleWorkout />}
-              /> */}
+          <Route path="/workout/:id" element={<SingleWorkout />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
 

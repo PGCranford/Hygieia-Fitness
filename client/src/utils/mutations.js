@@ -30,11 +30,6 @@ export const ADD_WORKOUT = gql`
       _id
       workoutText
       createdAt
-      username
-      # reactionCount
-      # reactions {
-      #   _id
-      # }
     }
   }
 `;

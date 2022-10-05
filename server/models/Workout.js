@@ -18,7 +18,6 @@ const workoutSchema = new Schema(
     },
     username: {
       type: String,
-      required: true,
     },
     // comments: [commentSchema]
   },

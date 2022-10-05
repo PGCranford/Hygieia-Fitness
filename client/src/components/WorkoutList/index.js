@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import styles from "./style.module.css";
 
 const WorkoutList = ({ workouts, title }) => {
-  if (!workouts.length) {
-    return <h3>No Workouts Yet</h3>;
-  }
+  // if (!workouts.length) {
+  //   return <h3>No Workouts Yet</h3>;
+  // }
 
   return (
     <div>
@@ -20,11 +20,10 @@ const WorkoutList = ({ workouts, title }) => {
                 className={styles["workout-user"]}
               >
                 {workout.username}
-              </Link>
-              {""}
+              </Link>{" "}
             </p>
             <div className={styles["workout-text"]}>
-              <Link to={`/workout/${workout._id}`}>
+              <Link to={`/workout/${workout._id}`} style={{ fontWeight: 700 }}>
                 <p>{workout.workoutText}</p>
               </Link>
             </div>
