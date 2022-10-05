@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useParams } from "react-router-dom";
 import WorkoutList from "../components/WorkoutList";
 import WorkoutForm from "../components/WorkoutForm";
 
@@ -8,7 +8,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_WORKOUTS, QUERY_ME_BASIC } from "../utils/queries";
 
 const Profile = () => {
-  // const { username: userParam } = useParams();
+  const { username: userParam } = useParams();
   const { loading, data } = useQuery(QUERY_WORKOUTS);
   // below is for comments/friends
   const { data: userData } = useQuery(QUERY_ME_BASIC);
