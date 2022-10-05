@@ -9,6 +9,7 @@
   --font_family: "Besley", serif;
 }
 
+
 * {
   transition: 0.3s;
   font-family: var(--font_family);
@@ -51,88 +52,6 @@
   width: 100%;
 }
 
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-}
-
-.navbar-brand {
-  font-size: 3em;
-  color: var(--green) !important;
-  padding: 0px 60px;
-  display: flex;
-}
-
-.navbar-brand span {
-  font-size: 1.6em;
-  color: var(--main) !important;
-  font-weight: 600;
-  margin-top: -20px;
-}
-
-.navbar-nav {
-  padding: 0px 60px;
-  margin-top: 0px;
-}
-
-.nav-link {
-  color: var(--green) !important;
-  margin-left: 8px;
-  font-size: 20px;
-}
-
-.nav-link::after {
-  content: "";
-  background: var(--main);
-  height: 2px;
-  width: 0px;
-  display: block;
-  position: absolute;
-}
-
-.nav-link:hover {
-  color: var(--main) !important;
-}
-
-@media (max-width: 990px) {
-  .navigation {
-    display: none;
-  }
-
-  .mobileNavigation {
-    display: flex;
-
-  }
-
-  .navbar-nav {
-    position: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 40px;
-    right: 0;
-
-    background: var(--black)
-  }
-
-  .navbar {
-    opacity: 1;
-  }
-
-  .nav-link a:hover {
-    color: var(--main);
-  }
-
-}
-
-.hamburger {
-  position: relative;
-  left: 80%;
-  color: var(--green);
-  font-size: 40px;
-  cursor: pointer;
-}
 
 /* Header */
 .header {
@@ -167,11 +86,30 @@
 }
 
 .header .content h6 {
-  font-size: 50px;
+  font-size: 30px;
 }
 
 .header .btn {
   margin-top: 30px;
+}
+
+.col-12 {
+  margin-top: 60%;
+  margin-right: 60%;
+  align-content: center;
+}
+
+.card {
+  margin-right: 50px;
+}
+
+.card-body {
+  padding-left: 2px;
+}
+
+.btn {
+  top: 10px;
+  left: 5px;
 }
 
 /* Custom Section */
@@ -199,13 +137,21 @@
 /* Footer */
 footer {
   background: var(--black);
-  padding: 20px;
+  position: absolute;
+  width: 100%;
+
+
 }
 
-footer .container {
+footer .foot {
   font-weight: 600;
-  font-size: 30px;
+  font-size: 2em;
   margin: 20px auto;
   color: var(--green);
   text-align: center;
+}
+
+main {
+  margin-top: 10%;
+  margin-left: 30%
 }
