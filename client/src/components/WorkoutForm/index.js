@@ -26,6 +26,7 @@ const WorkoutForm = () => {
       const { workouts } = cache.readQuery({
         query: QUERY_WORKOUTS,
       });
+      console.log(workouts);
       cache.writeQuery({
         query: QUERY_WORKOUTS,
         data: { workouts: [addWorkout, ...workouts] },

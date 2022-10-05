@@ -27,7 +27,7 @@ const WorkoutList = ({ workouts, title }) => {
               </Link>
             </div>
           </div>
-        ))()}
+        ))}
     </div>
   );
 };
