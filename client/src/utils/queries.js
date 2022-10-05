@@ -7,38 +7,32 @@ export const QUERY_USER = gql`
       username
       email
     }
+    workouts {
+      _id
+      workoutText
+      createdAt
+    }
   }
 `;
 
 export const QUERY_WORKOUTS = gql`
-  query workouts {
-    _id
-    workoutText
-    createdAt
-    # commentCount
-    # comments{
-    #     _id
-    #     createdAt
-    #     username
-    #     commentBody
-    # }
+  query workouts($username: String) {
+    workouts(username: $username) {
+      _id
+      workoutText
+      createdAt
+      username
+    }
   }
 `;
 
 export const QUERY_WORKOUT = gql`
   query workout($id: ID!) {
-    workouts(_id: $id) {
+    workout(_id: $id) {
       _id
       workoutText
       createdAt
       username
-      # commentCount
-      # comments{
-      #     _id
-      #     createdAt
-      #     username
-      #     commentBody
-      # }
     }
   }
 `;
@@ -49,6 +43,11 @@ export const QUERY_ME = gql`
       _id
       username
       email
+      workouts {
+        _id
+        workoutText
+        createdAt
+      }
     }
   }
 `;

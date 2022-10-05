@@ -26,12 +26,15 @@ const userSchema = new Schema(
         ref: 'Workout'
       }
     ],
+<<<<<<< HEAD
     // friends: [
     //   {
     //     type: Schema.Types.ObjectId,
     //     ref: 'User'
     //   }
     // ]
+=======
+>>>>>>> develop
   },
   {
     toJSON: {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Workout } = require("../models");
 const { signToken } = require("../utils/auth");
@@ -9,10 +10,24 @@ const resolvers = {
         const userData = await User.findOne({ _id: context.user._id }).select(
           "-__v -password"
         );
+=======
+const { AuthenticationError } = require('apollo-server-express');
+const { User, Workout} = require('../models');
+const { signToken } = require('../utils/auth');
+
+const resolvers = {
+    Query: {
+        me: async (parent, args, context) => {
+            if (context.user) {
+                const userData = await User.findOne({ _id: context.user._id })
+                    .select('-__v -password')
+                    .populate('workouts')
+>>>>>>> develop
 
         return userData;
       }
 
+<<<<<<< HEAD
       throw new AuthenticationError("Not logged in");
     },
     users: async () => {
@@ -69,6 +84,27 @@ const resolvers = {
         return workout;
       }
       throw new AuthenticationError("Please login before attempting this.");
+=======
+            throw new AuthenticationError('Not logged in');
+        },
+        users: async () => {
+            return User.find()
+                .select('-__v -password')
+                .populate('workouts')
+        },
+        user: async (parent, { username }) => {
+            return User.findOne({ username })
+                .select('-__v -password')
+                .populate('workouts');
+        },
+        workouts: async (parent, { username}) => {
+            const params = username ? {username} : {};
+            return Workout.find(params).sort({ createdAt: -1});
+        },
+        workout: async(parent, {_id}) => {
+            return Workout.findOne({_id});
+        }
+>>>>>>> develop
     },
 
     // addComment: async (parent, { workoutId, commentBody }, context) => {
@@ -102,9 +138,34 @@ const resolvers = {
     //         return updatedUser;
     //     }
 
+<<<<<<< HEAD
     //     throw new AuthenticationError('You need to be logged in!');
     // },
   },
+=======
+            if (!correctPw) {
+                throw new AuthenticationError('Incorrect credentials');
+            }
+
+            const token = signToken(user);
+            return { token, user };
+        },
+        addWorkout: async(parent, args, context) => {
+            if(context.user){
+                const workout = await Workout.create({...args, username: context.user.username});
+
+                await User.findByIdAndUpdate (
+                    {_id: context.user._id},
+                    {$push: {workouts: workout._id }},
+                    {new: true}
+                );
+
+                return workout;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        }
+    },
+>>>>>>> develop
 };
 
 module.exports = resolvers;
