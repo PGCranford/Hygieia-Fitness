@@ -17,3 +17,11 @@
   padding-bottom: 5rem;
   width: 80%;
 }
+
+.form-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  width: 15rem;
+}

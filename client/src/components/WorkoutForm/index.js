@@ -23,7 +23,9 @@ const WorkoutForm = () => {
       }
 
       // update workout array's cache
-      const { workouts } = cache.readQuery({ query: QUERY_WORKOUTS });
+      const { workouts } = cache.readQuery({
+        query: QUERY_WORKOUTS,
+      });
       cache.writeQuery({
         query: QUERY_WORKOUTS,
         data: { workouts: [addWorkout, ...workouts] },
@@ -65,7 +67,7 @@ const WorkoutForm = () => {
         <textarea
           placeholder="Enter a workout..."
           value={workoutText}
-          className="form-input col-12 col-md-9"
+          className="form-input  "
           onChange={handleChange}
         ></textarea>
         <button type="submit" onClick={handleFormSubmit}>

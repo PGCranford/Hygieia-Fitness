@@ -133,7 +133,12 @@
 }
 
 .profile {
+  padding-top: 4rem;
   font-size: 14rem;
+}
+
+.profile-title {
+  padding-top: 4rem;
 }
 
 .profile-user {
@@ -145,7 +150,9 @@
 .new-workout {
   display: flex;
   justify-content: center;
-  font-size: 8rem;
+  align-items: center;
+  padding-top: 7rem;
+  font-size: 1.5rem;
 }
 
 /* Footer */

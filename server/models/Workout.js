@@ -1,17 +1,14 @@
-<<<<<<< HEAD
 const { Schema, model } = require("mongoose");
-// const commentSchema = require('./Comment');
 const dateFormat = require("../utils/dateFormat");
 
 const workoutSchema = new Schema(
   {
     workoutText: {
       type: String,
-      required: "Please enter a workout!",
+      required: "You need to leave a workout!",
       minlength: 1,
-      maxlength: 540,
+      maxlength: 280,
     },
-
     createdAt: {
       type: Date,
       default: Date.now,
@@ -19,8 +16,8 @@ const workoutSchema = new Schema(
     },
     username: {
       type: String,
+      required: true,
     },
-    // comments: [commentSchema]
   },
   {
     toJSON: {
@@ -29,44 +26,6 @@ const workoutSchema = new Schema(
   }
 );
 
-workoutSchema.virtual("commentCount").get(function () {
-  return this.comments.length;
-});
-
 const Workout = model("Workout", workoutSchema);
 
 module.exports = Workout;
-=======
-const { Schema, model} = require('mongoose');
-const dateFormat = require('../utils/dateFormat')
-
-const workoutSchema = new Schema(
-    {
-      workoutText: {
-        type: String,
-        required: 'You need to leave a workout!',
-        minlength: 1,
-        maxlength: 280
-      },
-      createdAt: {
-        type: Date,
-        default: Date.now,
-        get: timestamp => dateFormat(timestamp)
-      },
-      username: {
-        type: String,
-        required: true
-      },
-    },
-    {
-      toJSON: {
-        getters: true
-      }
-    }
-  );
-
-  
-  const Workout = model('Workout', workoutSchema);
-  
-  module.exports = Workout;
->>>>>>> develop

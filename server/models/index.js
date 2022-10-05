@@ -1,8 +1,4 @@
-const User = require('./User');
-<<<<<<< HEAD
-const Workout= require('./Workout')
-=======
-const Workout = require('./Workout');
->>>>>>> develop
+const User = require("./User");
+const Workout = require("./Workout");
 
-module.exports = { User, Workout};
+module.exports = { User, Workout };

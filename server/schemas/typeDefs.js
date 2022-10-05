@@ -1,11 +1,6 @@
 // import the gql tagged template function
 const { gql } = require("apollo-server-express");
 
-<<<<<<< HEAD
-// create our typeDefs
-=======
-
->>>>>>> develop
 const typeDefs = gql`
   type User {
     _id: ID
@@ -17,14 +12,8 @@ const typeDefs = gql`
   type Workout {
     _id: ID
     workoutText: String
-<<<<<<< HEAD
-    username: String
-    createdAt: String
-    # comments: [Comment]
-=======
     createdAt: String
     username: String
->>>>>>> develop
   }
 
   type Auth {
@@ -35,11 +24,7 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-<<<<<<< HEAD
-    workouts: [Workout]
-=======
     workouts(username: String): [Workout]
->>>>>>> develop
     workout(_id: ID!): Workout
   }
   type Mutation {
