@@ -8,6 +8,7 @@ import { QUERY_WORKOUTS, QUERY_ME } from "../../utils/queries";
 
 const WorkoutForm = () => {
   const [workoutText, setWorkoutText] = useState("");
+  const [currentWorkout, setCurrentWorkout] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addWorkout, { error }] = useMutation(ADD_WORKOUT, {
