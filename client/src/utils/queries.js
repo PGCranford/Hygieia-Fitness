@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 export const QUERY_USER = gql`
   query user($username: String!) {
@@ -48,16 +48,6 @@ export const QUERY_ME = gql`
         workoutText
         createdAt
       }
-    }
-  }
-`;
-
-export const QUERY_ME_BASIC = gql`
-  {
-    me {
-      _id
-      username
-      email
     }
   }
 `;
