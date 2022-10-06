@@ -20,27 +20,12 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
-<<<<<<< HEAD
     workouts: [
       {
         type: Schema.Types.ObjectId,
         ref: "Workout",
       },
     ],
-=======
-    // thoughts: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Thought'
-    //   }
-    // ],
-    // friends: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'User'
-    //   }
-    // ]
->>>>>>> parent of 7d233fc (form showing up but workoutList still not working)
   },
   {
     toJSON: {
