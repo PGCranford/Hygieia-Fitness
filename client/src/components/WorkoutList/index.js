@@ -10,18 +10,19 @@ const WorkoutList = ({ workouts, title }) => {
     <div>
       <h3>{title}</h3>
       {workouts &&
-        workouts.map((workout) => (
-          <div key={workout._id}>
-            <p>
+        workouts.map(workout => (
+          <div key={workout._id} className="card mb-3">
+            <p className="card-header">
               <Link
                 to={`/profile/${workout.username}`}
                 style={{ fontWeight: 700 }}
+                className="text-light"
               >
                 {workout.username}
-              </Link>{" "}
-              Workout on {workout.createdAt}
+              </Link>{' '}
+              Workout was {workout.createdAt}
             </p>
-            <div>
+            <div className="card-body">
               <Link to={`/workout/${workout._id}`}>
                 <p>{workout.workoutText}</p>
               </Link>

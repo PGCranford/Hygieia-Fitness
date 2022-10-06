@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_WORKOUT } from "../../utils/mutations";
@@ -70,8 +71,22 @@ const WorkoutForm = () => {
           value={workoutText}
           className="form-input  "
           onChange={handleChange}
+=======
+import React, { useState } from 'react';
+
+const WorkoutForm = () => {
+  return (
+    <div>
+      <p className="m-0">
+        Character Count: 0/280
+      </p>
+      <form className="flex-row justify-center justify-space-between-md align-stretch">
+        <textarea
+          placeholder="Here's a new thought..."
+          className="form-input col-12 col-md-9"
+>>>>>>> parent of 7d233fc (form showing up but workoutList still not working)
         ></textarea>
-        <button type="submit" onClick={handleFormSubmit}>
+        <button className="btn col-12 col-md-3" type="submit">
           Submit
         </button>
       </form>
