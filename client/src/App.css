@@ -165,6 +165,8 @@ footer {
   background: var(--black);
   position: absolute;
   width: 100%;
+
+
 }
 
 footer .foot {
@@ -182,4 +184,18 @@ main {
   margin-left: 30%;
   height: 100%;
   width: 100%;
+}
+
+/* Profile */
+
+.profile {
+  font-size: 20px;
+  padding-left: 50px;
+  position: relative;
+}
+
+.profile .btn {
+  position: absolute;
+  margin-top: 10%;
+  left: 10%;
 }
