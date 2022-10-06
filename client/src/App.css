@@ -183,3 +183,42 @@ main {
   height: 100%;
   width: 100%;
 }
+
+/* Profile */
+
+.profile {
+  font-size: 20px;
+  padding-left: 50px;
+  position: relative;
+}
+
+.profile .btn {
+  position: absolute;
+  margin-top: 10%;
+  left: 10%;
+}
+
+.form-input {
+  margin-top: -20px;
+  margin-left: 2px;
+}
+
+.workout {
+  left: 20px;
+  margin-left: 10%;
+  margin-top: 20px;
+}
+
+.title {
+  margin-top: 150px;
+  left: 20px;
+  margin-left: 10%;
+}
+
+@media screen and(max-width:990px) {
+  .profile .btn {
+    position: absolute;
+    margin-top: 10%;
+    left: 10%;
+  }
+}
