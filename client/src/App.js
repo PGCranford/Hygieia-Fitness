@@ -14,7 +14,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Login from "./pages/Login";
 import NoMatch from "./pages/NoMatch";
-import SingleWorkout from "./pages/SingleWorkout";
+import Workout from "./pages/Workout";
 import Signup from "./pages/Signup";
 import Header from "./components/Header";
 import Homepage from "./components/Homepage";
@@ -53,7 +53,7 @@ function App() {
             <Route path=":username" element={<Profile />} />
             <Route path="" element={<Profile />} />
           </Route>
-          <Route path="/workout/:id" element={<SingleWorkout />} />
+          <Route path="/workout/:id" element={<Workout />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
 
