@@ -1,5 +1,5 @@
-import React from 'react';
-// import { Link } from 'react-router-dom';
+import React from "react";
+// import { Link } from "react-router-dom";
 
 const WorkoutList = ({ workouts, title }) => {
   if (!workouts.length) {
@@ -27,7 +27,7 @@ const WorkoutList = ({ workouts, title }) => {
               </Link>
             </div>
           </div>
-        )())} */}
+        ))} */}
     </div>
   );
 };
