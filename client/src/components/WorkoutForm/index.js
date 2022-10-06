@@ -72,7 +72,7 @@ const WorkoutForm = () => {
           value={workoutText}
           className="form-input col-10 col-md-4"
         ></textarea>
-        <button className='btn' type="submit" onClick={handleFormSubmit}>
+        <button className='btn-submit' type="submit" onClick={handleFormSubmit}>
           Submit
         </button>
       </form>

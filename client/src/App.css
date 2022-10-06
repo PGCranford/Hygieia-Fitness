@@ -98,7 +98,8 @@
 }
 
 .card {
-  margin-right: 50px;
+  top: 80px;
+  margin-right: 150px;
 }
 
 .card-body {
@@ -194,7 +195,7 @@ main {
   position: relative;
 }
 
-.profile .btn {
+.profile .btn-submit {
   position: absolute;
   margin-top: 10%;
   left: 10%;
@@ -217,10 +218,33 @@ main {
   margin-left: 10%;
 }
 
-@media screen and(max-width:990px) {
-  .profile .btn {
-    position: absolute;
-    margin-top: 10%;
-    left: 10%;
-  }
+.btn-submit {
+  width: 300px;
+  border: 2px solid var(--main);
+  color: var(--main) !important;
+  border-radius: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-submit:hover {
+  color: var(--white) !important;
+}
+
+.btn-submit::after {
+  content: "";
+  background: var(--main);
+  display: block;
+  position: absolute;
+  height: 100%;
+  z-index: -1;
+  width: 0px;
+  top: 0;
+  border-radius: 15px;
+  left: 0;
+  transition: 0.3s;
+}
+
+.btn-submit:hover::after {
+  width: 100%;
 }
