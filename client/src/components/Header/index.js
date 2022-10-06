@@ -31,7 +31,7 @@ const Header = () => {
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">
-                                <Link className='nav-link' to="/profile">Me</Link>
+                                <Nav.Link onClick={() => setOpen(false)} className='nav-link' aria-controls="basic-navbar-nav" href="/profile">Me</Nav.Link>
                                 <a className='nav-link' href="/" onClick={logout}>
                                     Logout
                                 </a>

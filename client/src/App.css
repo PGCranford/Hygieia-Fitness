@@ -200,6 +200,11 @@ main {
   left: 10%;
 }
 
+.form-input {
+  margin-top: -20px;
+  margin-left: 2px;
+}
+
 .workout {
   left: 20px;
   margin-left: 10%;
@@ -210,5 +215,12 @@ main {
   margin-top: 150px;
   left: 20px;
   margin-left: 10%;
+}
 
+@media screen and(max-width:990px) {
+  .profile .btn {
+    position: absolute;
+    margin-top: 10%;
+    left: 10%;
+  }
 }
