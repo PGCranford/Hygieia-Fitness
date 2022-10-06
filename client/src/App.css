@@ -15,6 +15,10 @@
   font-family: var(--font_family);
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 /* color */
 *::selection {
   background: var(--main);
