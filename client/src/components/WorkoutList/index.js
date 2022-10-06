@@ -7,7 +7,7 @@ const WorkoutList = ({ workouts, title }) => {
   }
 
   return (
-    <div>
+    <div className='workout'>
       <h3>{title}</h3>
       {workouts &&
         workouts.map(workout => (
