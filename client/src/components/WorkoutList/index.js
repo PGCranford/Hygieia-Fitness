@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const WorkoutList = ({ workouts, title }) => {
   if (!workouts.length) {
@@ -9,8 +9,8 @@ const WorkoutList = ({ workouts, title }) => {
   return (
     <div>
       <h3>{title}</h3>
-      {workouts &&
-        workouts.map((workout) => (
+      {/* {workouts &&
+        workouts.map(workout => (
           <div key={workout._id}>
             <p>
               <Link
@@ -18,7 +18,7 @@ const WorkoutList = ({ workouts, title }) => {
                 style={{ fontWeight: 700 }}
               >
                 {workout.username}
-              </Link>{" "}
+              </Link>{' '}
               Workout on {workout.createdAt}
             </p>
             <div>
@@ -27,7 +27,7 @@ const WorkoutList = ({ workouts, title }) => {
               </Link>
             </div>
           </div>
-        ))}
+        ))} */}
     </div>
   );
 };
