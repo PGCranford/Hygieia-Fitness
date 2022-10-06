@@ -65,14 +65,15 @@ const WorkoutForm = () => {
             Character Count: {characterCount}/280
             {error && <span className="ml-2">Something went wrong...</span>}
         </p> */}
-      <form>
+      <form className='profile'
+        style={{ "height": "80vh" }}>
         <textarea
           placeholder="Enter a workout..."
           value={workoutText}
-          className="form-input col-12 col-md-9"
+          className="form-input col-10 col-md-4"
           onChange={handleChange}
         ></textarea>
-        <button type="submit" onClick={handleFormSubmit}>
+        <button className='btn' type="submit" onClick={handleFormSubmit}>
           Submit
         </button>
       </form>
