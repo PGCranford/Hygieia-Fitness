@@ -24,14 +24,14 @@ const Header = () => {
         <Navbar bg="dark" expand="lg" className='navbar navbar-expand-sm fixed-top'>
 
             <Container>
-                <Navbar.Brand href='/' className='navbar-brand'><span>H</span>ygieia Fitness</Navbar.Brand>
+                <Navbar.Brand href='/home' className='navbar-brand'><span>H</span>ygieia Fitness</Navbar.Brand>
                 {Auth.loggedIn() ? (
 
                     <>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">
-                                <Link className='nav-link' to="/profile">Me</Link>
+                                <Nav.Link onClick={() => setOpen(false)} className='nav-link' aria-controls="basic-navbar-nav" href="/profile">Me</Nav.Link>
                                 <a className='nav-link' href="/" onClick={logout}>
                                     Logout
                                 </a>
@@ -46,7 +46,7 @@ const Header = () => {
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">
-                                <Nav.Link onClick={() => setOpen(false)} className='nav-link' aria-controls="basic-navbar-nav" href="/">Home</Nav.Link>
+                                <Nav.Link onClick={() => setOpen(false)} className='nav-link' aria-controls="basic-navbar-nav" href="/home">Home</Nav.Link>
                                 <Nav.Link onClick={() => setOpen(false)} className='nav-link' aria-controls="basic-navbar-nav" href="/login">Login</Nav.Link>
                                 <Nav.Link onClick={() => setOpen(false)} className='nav-link' aria-controls="basic-navbar-nav" href="/signup">Signup</Nav.Link>
                             </Nav>

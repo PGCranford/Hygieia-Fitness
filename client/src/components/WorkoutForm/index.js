@@ -65,9 +65,9 @@ const WorkoutForm = () => {
         <textarea
           placeholder="Enter a workout..."
           value={workoutText}
-          className="form-input col-11 col-md-5"
+          className="form-input col-10 col-md-4"
         ></textarea>
-        <button className="btn" type="submit" onClick={handleFormSubmit}>
+        <button className="btn-submit" type="submit" onClick={handleFormSubmit}>
           Submit
         </button>
       </form>
