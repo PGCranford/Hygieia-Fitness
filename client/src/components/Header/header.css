@@ -1,121 +1,133 @@
-@import url('https://fonts.googleapis.com/css2?family=Besley:ital@1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Besley:ital@1&display=swap");
 
 /* Global Variable */
 :root {
-    --main: #f01027;
-    --black: #000;
-    --green: #3f8a50;
-    --white: #fff;
-    --font_family: "Besley", serif;
+  --main: #f01027;
+  --black: #000;
+  --white: #fff;
+  --font_family: "Besley", serif;
 }
 
-
 * {
+<<<<<<< HEAD
     transition: 0.3s;
     font-family: var(--font_family);
 
+=======
+  transition: 0.3s;
+  font-family: var(--font_family);
+>>>>>>> develop
 }
 
 /* color */
 *::selection {
-    background: var(--main);
-    color: var(--white) !important;
+  background: var(--main);
+  color: var(--white) !important;
 }
 
 .btn {
-    width: 300px;
-    border: 2px solid var(--main);
-    color: var(--main) !important;
-    border-radius: 15px;
-    position: relative;
-    z-index: 1;
+  width: 18.75rem;
+  border: 0.125rem solid var(--main);
+  color: var(--main) !important;
+  border-radius: 0.938rem;
+  position: relative;
+  z-index: 1;
 }
 
 .btn:hover {
-    color: var(--white) !important;
+  color: var(--white) !important;
 }
 
 .btn::after {
-    content: "";
-    background: var(--main);
-    display: block;
-    position: absolute;
-    height: 100%;
-    z-index: -1;
-    width: 0px;
-    top: 0;
-    border-radius: 15px;
-    left: 0;
-    transition: 0.3s;
+  content: "";
+  background: var(--main);
+  display: block;
+  position: absolute;
+  height: 100%;
+  z-index: -1;
+  width: 0px;
+  top: 0;
+  border-radius: 15px;
+  left: 0;
+  transition: 0.3s;
 }
 
 .btn:hover::after {
-    width: 100%;
+  width: 100%;
 }
-
 
 /* Navbar */
 .navbar {
+<<<<<<< HEAD
     display: flex;
     justify-content: space-between;
     padding: 20px;
 
+=======
+  display: flex;
+  justify-content: space-between;
+  padding: 1.25rem;
+  max-width: 100%;
+>>>>>>> develop
 }
 
 .navbar-toggler {
-    background-color: var(--green);
+  background-color: var(--white);
 }
 
 .navbar-brand {
-    font-size: 2em;
-    color: var(--green) !important;
-    padding: 0px 50px;
-    display: flex;
+  font-size: 2em;
+  color: var(--white) !important;
+  padding: 0rem 3.125rem;
+  display: flex;
 }
 
 .navbar-brand span {
-    font-size: 1.6em;
-    color: var(--main) !important;
-    font-weight: 600;
-    margin-top: -20px;
+  font-size: 1.6em;
+  color: var(--main) !important;
+  font-weight: 600;
+  margin-top: -1.25rem;
 }
 
 .navbar-nav {
-    padding: 0px 60px;
-    margin-top: 0px;
+  padding: 0 3.75rem;
+  margin-top: 0px;
 }
 
 .nav-link {
-    color: var(--green) !important;
-    margin-left: 10px;
-    font-size: 20px;
+  color: var(--white) !important;
+  margin-left: 0.625rem;
+  font-size: 1.25rem;
 }
 
 .nav-link::after {
-    content: "";
-    background: var(--main);
-    height: 2px;
-    width: 0px;
-    display: block;
-    position: absolute;
+  content: "";
+  background: var(--main);
+  height: 0.125rem;
+  width: 0px;
+  display: block;
+  position: absolute;
 }
 
 .nav-link:hover {
-    color: var(--main) !important;
+  color: var(--main) !important;
+}
+
+.navbar-collapse {
+  margin-left: 20%;
 }
 
 /* Footer */
-footer {
-    background: var(--black);
-    position: absolute;
-    width: 100%;
-
+/* footer {
+  background: var(--black);
+  position: absolute;
+  width: 100%;
 }
 
 footer .foot {
-    font-weight: 600;
-    font-size: 30px;
-    margin: 20px auto;
-    color: var(--green);
-    text-align: center;
-}
+  font-weight: 600;
+  font-size: 1.875rem;
+  margin: 1.25rem auto;
+  color: var(--white);
+  text-align: center;
+} */
