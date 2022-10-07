@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styles from "./style.module.css";
 
 const WorkoutList = ({ workouts, title }) => {
   if (!workouts.length) {
@@ -7,25 +8,25 @@ const WorkoutList = ({ workouts, title }) => {
   }
 
   return (
-    <div className='workout'>
-      <h3>{title}</h3>
+    <div className={styles["workout"]}>
+      <h3 className={styles["workout-title"]}>{title}</h3>
       {workouts &&
-        workouts.map(workout => (
+        workouts.map((workout) => (
           <div key={workout._id}>
-            <p>
+            <p className={styles["workout-info"]}>
+              <div>
+                <Link to={`/workout/${workout._id}`}>
+                  <p>{workout.workoutText}</p>
+                </Link>
+              </div>
               <Link
                 to={`/profile/${workout.username}`}
-                style={{ fontWeight: 700 }}
+                style={{ fontWeight: 600 }}
               >
                 {workout.username}
-              </Link>{' '}
-              Workout on {workout.createdAt}
+              </Link>{" "}
+              on {workout.createdAt}
             </p>
-            <div>
-              <Link to={`/workout/${workout._id}`}>
-                <p>{workout.workoutText}</p>
-              </Link>
-            </div>
           </div>
         ))}
     </div>
