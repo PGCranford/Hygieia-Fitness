@@ -20,7 +20,7 @@ import Header from "./components/Header";
 import Homepage from "./components/Homepage";
 import Footer from "./components/Footer";
 import Profile from "./pages/Profile";
-import SingleComment from './pages/SingleThought';
+import SingleComment from './pages/SingleComment';
 
 const httpLink = createHttpLink({
   uri: "/graphql",
