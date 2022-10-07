@@ -16,6 +16,13 @@ const typeDefs = gql`
     username: String
   }
 
+  type Comment {
+    _id: ID
+    reactionBody: String
+    createdAt: String
+    username: String
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -31,6 +38,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addWorkout(workoutText: String!): Workout
+    addComment(commentId: ID!, commentBody: String!): Comment
   }
 `;
 
