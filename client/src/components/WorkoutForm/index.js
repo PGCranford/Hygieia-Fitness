@@ -70,11 +70,13 @@ const WorkoutForm = () => {
           className={styles["form-title"]}
           placeholder="Enter a title..."
           value={workoutTitle}
+          onChange={handleChange}
         ></textarea>
         <textarea
           className={styles["form-input"]}
           placeholder="Enter a workout..."
           value={workoutText}
+          onChange={handleChange}
         ></textarea>
         <button
           className={styles["btn-submit"]}
