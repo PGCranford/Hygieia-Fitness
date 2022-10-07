@@ -1,12 +1,18 @@
 .workout {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 .workout-title {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 3.5rem;
+}
+
+.workout-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

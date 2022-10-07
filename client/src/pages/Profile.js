@@ -35,9 +35,7 @@ const Profile = () => {
   return (
     <div className="profile-main">
       <div>
-        <h2 className="title">
-          This is {userParam ? `${user.username}'s` : "your"} profile.
-        </h2>
+        <h2 className="title">{`${user.username}'s`} profile.</h2>
       </div>
       <div className="new-workout">
         <div>{!userParam && <WorkoutForm />}</div>

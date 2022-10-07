@@ -6,6 +6,7 @@ import styles from "./style.module.css";
 
 const WorkoutForm = () => {
   const [workoutText, setText] = useState("");
+  const [workoutTitle, setTitle] = useState("");
   // const [characterCount, setCharacterCount] = useState(0);
 
   //use mutation hook that allows us to update the cache of any related queries
@@ -45,11 +46,12 @@ const WorkoutForm = () => {
     try {
       // add thought to database
       await addWorkout({
-        variables: { workoutText },
+        variables: { workoutText, workoutTitle },
       });
 
       // clear form value
       setText("");
+      setTitle("");
       // setCharacterCount(0);
     } catch (e) {
       console.error(e);
@@ -58,12 +60,17 @@ const WorkoutForm = () => {
 
   return (
     <div className={styles["new-workout"]}>
+      <div className={styles["workout-title"]}>Add a new workout</div>
       {/* <p>
             Character Count: {characterCount}/280
             {error && <span className="ml-2">Something went wrong...</span>}
         </p> */}
-      <form>
-        <div className={styles["workout-intro"]}>Add a new workout</div>
+      <form className={styles["form"]}>
+        <textarea
+          className={styles["form-title"]}
+          placeholder="Enter a title..."
+          value={workoutTitle}
+        ></textarea>
         <textarea
           className={styles["form-input"]}
           placeholder="Enter a workout..."

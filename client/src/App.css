@@ -110,6 +110,7 @@
 .profile-main {
   padding: auto;
   margin: 3rem;
+  align-items: center;
 }
 
 .profile-title {
@@ -126,7 +127,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 7rem;
+  padding-top: 1rem;
   font-size: 2.5rem;
 }
 
@@ -163,11 +164,11 @@ main {
 
 /* Profile */
 
-.profile {
+/* .profile {
   font-size: 20px;
   padding-left: 50px;
   position: relative;
-}
+} */
 
 .profile .btn-submit {
   position: absolute;
@@ -189,11 +190,12 @@ main {
 .title {
   display: flex;
   justify-content: center;
-  margin-top: 150px;
-  left: 20px;
-  margin-left: 10%;
+  margin-top: 10rem;
+  font-size: 6rem;
+  color: #f01027;
 }
 
+/* 
 .btn-submit {
   width: 300px;
   border: 2px solid var(--main);
@@ -223,4 +225,4 @@ main {
 
 .btn-submit:hover::after {
   width: 100%;
-}
+} */

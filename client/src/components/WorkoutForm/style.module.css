@@ -1,9 +1,8 @@
 .new-workout {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 5rem;
   padding-bottom: 8rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .workout-intro {
@@ -12,22 +11,37 @@
   justify-content: center;
 }
 
-.form-input {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.workout-title {
+  margin-left: 8rem;
+  font-size: 4.5rem;
+}
+
+.form-title {
   font-size: 1.5rem;
-  width: 120%;
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 22rem;
+}
+.form-input {
+  font-size: 1.5rem;
+  width: 65rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .btn-submit {
-  width: 30rem;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 15rem;
   border: 0.2rem solid var(--main);
   color: var(--main) !important;
   border-radius: 1.1rem;
   position: relative;
   z-index: 1;
   font-size: 2rem;
+  margin-left: 22.5rem;
 }
 
 .btn-submit:hover {
