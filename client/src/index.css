@@ -103,7 +103,6 @@
 
   .mobileNavigation {
     display: flex;
-
   }
 
   .navbar-nav {
@@ -113,7 +112,7 @@
     top: 40px;
     right: 0;
 
-    background: var(--black)
+    background: var(--black);
   }
 
   .navbar {
@@ -123,7 +122,6 @@
   .nav-link a:hover {
     color: var(--main);
   }
-
 }
 
 .hamburger {
@@ -149,6 +147,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
   height: 100%;
   width: 100%;
   background: var(--black);
@@ -197,7 +196,7 @@
 }
 
 /* Footer */
-footer {
+/* footer {
   background: var(--black);
   padding: 20px;
 }
@@ -208,4 +207,4 @@ footer .container {
   margin: 20px auto;
   color: var(--green);
   text-align: center;
-}
+} */
