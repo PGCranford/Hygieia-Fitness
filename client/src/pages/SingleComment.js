@@ -37,10 +37,10 @@ const SingleComment = (props) => {
       </div>
 
       {comment.commentCount > 0 && (
-        <CommentList reactions={comment.comments} />
+        <CommentList commes={comment.comments} />
       )}
 
-      {Auth.loggedIn() && <CommentForm thoughtId={comment._id} />}
+      {Auth.loggedIn() && <CommentForm commentId={comment._id} />}
     </div>
   );
 };
