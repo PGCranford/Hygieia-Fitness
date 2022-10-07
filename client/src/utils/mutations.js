@@ -37,3 +37,19 @@ export const ADD_WORKOUT = gql`
     }
   }
 `;
+
+//add a comment
+export const ADD_CCOMMENT = gql`
+  mutation addComment($commentId: ID!, $commentBody: String!) {
+    addComment(commentId: $tcommentId, commentBody: $commentBody) {
+      _id
+      commentCount
+      comments {
+        _id
+        comentBody
+        createdAt
+        username
+      }
+    }
+  }
+`;
