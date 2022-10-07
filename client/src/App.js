@@ -18,6 +18,7 @@ import Workout from "./pages/Workout";
 import Signup from "./pages/Signup";
 import Header from "./components/Header";
 import Homepage from "./components/Homepage";
+import Home from "./components/Homepage/Home"
 import Footer from "./components/Footer";
 import Profile from "./pages/Profile";
 
@@ -46,6 +47,7 @@ function App() {
         <Header />
 
         <Routes>
+          <Route path="/home" element={<Home />} />
           <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
