@@ -62,31 +62,6 @@
   object-fit: cover;
 }
 
-.header .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: var(--black);
-  opacity: 0.25;
-}
-
-.header .content {
-  position: absolute;
-  top: 99%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: var(--green) !important;
-  background: var(--black);
-  padding: 20px;
-}
-
-.header .content h6 {
-  font-size: 30px;
-}
-
 .header .btn {
   margin-top: 30px;
 }
@@ -160,6 +135,7 @@
   padding-top: 8rem;
   font-size: 1.5rem;
 }
+
 
 /* Footer */
 footer {

@@ -104,6 +104,10 @@
     color: var(--main) !important;
 }
 
+.navbar-collapse {
+    margin-left: 20%;
+}
+
 /* Footer */
 footer {
     background: var(--black);
