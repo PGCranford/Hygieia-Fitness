@@ -32,13 +32,8 @@ const resolvers = {
         workout: async (parent, { _id }) => {
             return Workout.findOne({ _id });
         },
-        comment: async (parent, { username }) => {
-            const params = username ? { username } : {};
-            return Comment.find(params).sort({ createdAt: -1 });
-        },
-        comment: async (parent, { _id }) => {
-            return Comment.findOne({ _id });
-        }
+      
+        
     },
 
     Mutation: {
