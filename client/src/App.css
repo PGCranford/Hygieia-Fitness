@@ -4,7 +4,6 @@
 :root {
   --main: #f01027;
   --black: #000;
-  --green: #3f8a50;
   --white: #fff;
   --font_family: "Besley", serif;
 }
@@ -150,7 +149,7 @@ footer .foot {
   font-weight: 600;
   font-size: 2em;
   margin: 20px auto;
-  color: var(--green);
+  color: var(--white);
   text-align: center;
   bottom: 0;
   flex-shrink: 0;

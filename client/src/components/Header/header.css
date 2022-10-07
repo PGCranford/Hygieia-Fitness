@@ -4,7 +4,6 @@
 :root {
     --main: #f01027;
     --black: #000;
-    --green: #3f8a50;
     --white: #fff;
     --font_family: "Besley", serif;
 }
@@ -63,12 +62,12 @@
 }
 
 .navbar-toggler {
-    background-color: var(--green);
+    background-color: var(--white);
 }
 
 .navbar-brand {
     font-size: 2em;
-    color: var(--green) !important;
+    color: var(--white) !important;
     padding: 0px 50px;
     display: flex;
 }
@@ -86,7 +85,7 @@
 }
 
 .nav-link {
-    color: var(--green) !important;
+    color: var(--white) !important;
     margin-left: 10px;
     font-size: 20px;
 }
@@ -120,6 +119,6 @@ footer .foot {
     font-weight: 600;
     font-size: 30px;
     margin: 20px auto;
-    color: var(--green);
+    color: var(--white);
     text-align: center;
 }

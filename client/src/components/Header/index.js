@@ -1,5 +1,6 @@
 import React from 'react';
 import Auth from '../../utils/auth';
+import { Link } from 'react-router-dom';
 import './header.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -31,7 +32,7 @@ const Header = () => {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">
                                 <Nav.Link onClick={() => setOpen(false)} className='nav-link' aria-controls="basic-navbar-nav" href="/profile">Me</Nav.Link>
-                                <a className='nav-link' href="/home" onClick={logout}>
+                                <a className='nav-link' href="/" onClick={logout}>
                                     Logout
                                 </a>
                             </Nav>
