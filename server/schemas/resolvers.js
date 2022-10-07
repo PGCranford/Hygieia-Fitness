@@ -31,7 +31,7 @@ const resolvers = {
         },
         workout: async(parent, {_id}) => {
             return Workout.findOne({_id});
-        }
+        },
     },
 
     Mutation: {
@@ -70,7 +70,18 @@ const resolvers = {
                 return workout;
             }
             throw new AuthenticationError('You need to be logged in!');
-        }
+        },
+        addComment: async (parent, { workoutId, commentBody }, context) => {
+            if (context.user) {
+              const updatedWorkout = await Workout.findOneAndUpdate(
+                { _id: workoutId },
+                { $push: { comments: { commentBody, username: context.user.username } } },
+                { new: true, runValidators: true }
+              );
+              return updatedWorkout;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
     },
 };
 

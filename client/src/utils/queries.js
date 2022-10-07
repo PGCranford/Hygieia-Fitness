@@ -22,6 +22,13 @@ export const QUERY_WORKOUTS = gql`
       workoutText
       createdAt
       username
+      commentCount
+      comments {
+        _id
+        createdAt
+        username
+        commentBody
+      }
     }
   }
 `;
@@ -33,6 +40,13 @@ export const QUERY_WORKOUT = gql`
       workoutText
       createdAt
       username
+      commentCount
+      comments {
+        _id
+        createdAt
+        username
+        commentBody
+      }
     }
   }
 `;
@@ -47,6 +61,23 @@ export const QUERY_ME = gql`
         _id
         workoutText
         createdAt
+      }
+    }
+  }
+`;
+
+export const QUERY_COMMENTS = gql`
+  query comments($username: String) {
+    comments(username: $username) {
+      _id
+      thoughtText
+      createdAt
+      username
+      comments {
+        _id
+        createdAt
+        username
+        commentBody
       }
     }
   }
