@@ -107,6 +107,8 @@
   transform: scale(1.1);
 }
 
+/* Profile */
+
 .profile-main {
   padding: auto;
   margin: 3rem;
@@ -145,30 +147,11 @@ main {
   width: 100%;
 }
 
-/* Profile */
-
-/* .profile {
-  font-size: 20px;
-  padding-left: 50px;
-  position: relative;
-} */
-
 .profile .btn-submit {
   position: absolute;
   margin-top: 10%;
   left: 10%;
 }
-
-/* .form-input {
-  margin-top: -20px;
-  margin-left: 2px;
-} */
-
-/* .workout {
-  left: 20px;
-  margin-left: 10%;
-  margin-top: 20px;
-} */
 
 .title {
   display: flex;
@@ -178,34 +161,37 @@ main {
   color: #f01027;
 }
 
-/* 
-.btn-submit {
-  width: 300px;
-  border: 2px solid var(--main);
-  color: var(--main) !important;
-  border-radius: 15px;
-  position: relative;
-  z-index: 1;
+/* single workout  */
+.single-workout {
+  padding-top: 3rem;
+  margin: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.btn-submit:hover {
-  color: var(--white) !important;
+.sw-header {
+  font-size: 1.5rem;
 }
 
-.btn-submit::after {
-  content: "";
-  background: var(--main);
-  display: block;
-  position: absolute;
-  height: 100%;
-  z-index: -1;
-  width: 0px;
-  top: 0;
-  border-radius: 15px;
-  left: 0;
-  transition: 0.3s;
+.sw-body {
+  font-size: 3.5rem;
 }
 
-.btn-submit:hover::after {
-  width: 100%;
-} */
+@media screen and (max-width: 400px) {
+  .single-workout .sw-header {
+    padding-top: 4rem;
+    margin: 3rem;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .single-workout .sw-header {
+    height: fit-content;
+    padding-top: 4rem;
+    margin: 3rem;
+    align-items: center;
+  }
+}

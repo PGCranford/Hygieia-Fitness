@@ -17,20 +17,15 @@ const SingleWorkout = (props) => {
   }
 
   return (
-    <div>
-      <div className="card mb-3">
-        <p className="card-header">
-          <span style={{ fontWeight: 700 }} className="text-light">
-            {workout.username}
-          </span>{" "}
-          workout was {workout.createdAt}
+    <div className="single-workout">
+      <div>
+        <p className="sw-header">
+          <span>{workout.username}</span> created this workout on
+          {workout.createdAt}
         </p>
-        <div className="card-body">
-          <p>{workout.workoutTitle}</p>
-        </div>
-        <div className="card-body">
-          <p>{workout.workoutText}</p>
-        </div>
+      </div>
+      <div className="sw-body">
+        <p>{workout.workoutText}</p>
       </div>
     </div>
   );
