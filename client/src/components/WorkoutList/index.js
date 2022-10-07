@@ -13,6 +13,11 @@ const WorkoutList = ({ workouts, title }) => {
         workouts.map((workout) => (
           <div key={workout._id}>
             <p>
+              <div>
+                <Link to={`/workout/${workout._id}`}>
+                  <p>{workout.workoutText}</p>
+                </Link>
+              </div>
               <Link
                 to={`/profile/${workout.username}`}
                 style={{ fontWeight: 700 }}
@@ -21,11 +26,6 @@ const WorkoutList = ({ workouts, title }) => {
               </Link>{" "}
               Workout on {workout.createdAt}
             </p>
-            <div>
-              <Link to={`/workout/${workout._id}`}>
-                <p>{workout.workoutText}</p>
-              </Link>
-            </div>
           </div>
         ))}
     </div>

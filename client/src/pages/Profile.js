@@ -33,22 +33,23 @@ const Profile = () => {
   }
 
   return (
-    <div>
+    <div className="profile-main">
       <div>
         <h2 className="title">
-          Viewing {userParam ? `${user.username}'s` : "your"} profile.
+          This is {userParam ? `${user.username}'s` : "your"} profile.
         </h2>
       </div>
-
+      <div className="new-workout">
+        <div>{!userParam && <WorkoutForm />}</div>
+      </div>
       <div>
-        <div>
+        <div className="profile-workout">
           <WorkoutList
             workouts={user.workouts}
             title={`${user.username}'s workouts...`}
           />
         </div>
       </div>
-      <div className="mb-3">{!userParam && <WorkoutForm />}</div>
     </div>
   );
 };

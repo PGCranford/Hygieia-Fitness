@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_WORKOUT } from "../../utils/mutations";
 import { QUERY_WORKOUTS, QUERY_ME } from "../../utils/queries";
+import styles from "./style.module.css";
 
 const WorkoutForm = () => {
   const [workoutText, setText] = useState("");
@@ -56,18 +57,23 @@ const WorkoutForm = () => {
   };
 
   return (
-    <div>
+    <div className={styles["new-workout"]}>
       {/* <p>
             Character Count: {characterCount}/280
             {error && <span className="ml-2">Something went wrong...</span>}
         </p> */}
-      <form className="profile" style={{ height: "80vh" }}>
+      <form>
+        <div className={styles["workout-intro"]}>Add a new workout</div>
         <textarea
+          className={styles["form-input"]}
           placeholder="Enter a workout..."
           value={workoutText}
-          className="form-input col-10 col-md-4"
         ></textarea>
-        <button className="btn-submit" type="submit" onClick={handleFormSubmit}>
+        <button
+          className={styles["btn-submit"]}
+          type="submit"
+          onClick={handleFormSubmit}
+        >
           Submit
         </button>
       </form>

@@ -1,22 +1,15 @@
-.workout-form {
+.new-workout {
   display: flex;
   justify-content: center;
+  align-items: center;
   font-size: 5rem;
   padding-bottom: 8rem;
 }
 
-.workout-title {
+.workout-intro {
+  font-size: 2.9rem;
   display: flex;
   justify-content: center;
-  font-size: 5rem;
-  font-family: "Courier New", Courier, monospace;
-}
-
-.workout-input {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 5rem;
-  width: 80%;
 }
 
 .form-input {
@@ -24,5 +17,33 @@
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-  width: 15rem;
+  width: 120%;
+}
+
+.btn-submit {
+  width: 30rem;
+  border: 0.2rem solid var(--main);
+  color: var(--main) !important;
+  border-radius: 1.1rem;
+  position: relative;
+  z-index: 1;
+  font-size: 2rem;
+}
+
+.btn-submit:hover {
+  color: var(--white) !important;
+}
+
+.btn-submit::after {
+  content: "";
+  background: var(--main);
+  display: block;
+  position: absolute;
+  height: 100%;
+  z-index: -1;
+  width: 0px;
+  top: 0;
+  border-radius: 15px;
+  left: 0;
+  transition: 0.3s;
 }

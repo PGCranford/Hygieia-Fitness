@@ -107,9 +107,9 @@
   transform: scale(1.1);
 }
 
-.profile {
-  padding-top: 4rem;
-  font-size: 14rem;
+.profile-main {
+  padding: auto;
+  margin: 3rem;
 }
 
 .profile-title {
@@ -122,27 +122,26 @@
   font-size: small;
 }
 
-.profile-workouts {
+.profile-workout {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 7rem;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 
 .new-workout {
-  padding-top: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.5rem;
 }
-
 
 /* Footer */
 footer {
   background: var(--black);
   position: absolute;
   width: 100%;
-
-
 }
 
 footer .foot {
@@ -188,6 +187,8 @@ main {
 }
 
 .title {
+  display: flex;
+  justify-content: center;
   margin-top: 150px;
   left: 20px;
   margin-left: 10%;
