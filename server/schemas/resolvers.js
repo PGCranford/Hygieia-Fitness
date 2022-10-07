@@ -1,6 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
-const { Workout} = require('../models');
+const { User, Workout} = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -26,14 +25,6 @@ const resolvers = {
                 .select('-__v -password')
                 .populate('workouts');
         },
-        comment: async (parent, { username }) => {
-            const params = username ? { username } : {};
-            return Comment.find(params).sort({ createdAt: -1 });
-        },
-        comment: async (parent, { _id }) => {
-            return Comment.findOne({ _id });
-        },
-
         workouts: async (parent, { username}) => {
             const params = username ? {username} : {};
             return Workout.find(params).sort({ createdAt: -1});
@@ -66,20 +57,6 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        addComment: async (parent, { commentId, commentBody }, context) => {
-            if (context.user) {
-                const updatedComment = await Comment.findOneAndUpdate(
-                    { _id: commentId },
-                    { $push: { comments: { commmentBody, username: context.user.username } } },
-                    { new: true, runValidators: true }
-                );
-
-                return updatedComment;
-            }
-
-            throw new AuthenticationError('User must be signed in!');
-
-        },
         addWorkout: async(parent, args, context) => {
             if(context.user){
                 const workout = await Workout.create({...args, username: context.user.username});
@@ -97,4 +74,4 @@ const resolvers = {
     },
 };
 
-    module.exports = resolvers;
+module.exports = resolvers;

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Besley:ital@1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Besley:ital@1&display=swap");
 
 /* Global Variable */
 :root {
@@ -9,14 +9,9 @@
   --font_family: "Besley", serif;
 }
 
-
 * {
   transition: 0.3s;
   font-family: var(--font_family);
-}
-
-html{
-  scroll-behavior: smooth;
 }
 
 /* color */
@@ -55,7 +50,6 @@ html{
 .btn:hover::after {
   width: 100%;
 }
-
 
 /* Header */
 .header {
@@ -138,13 +132,39 @@ html{
   transform: scale(1.1);
 }
 
+.profile {
+  padding-top: 4rem;
+  font-size: 14rem;
+}
+
+.profile-title {
+  padding-top: 4rem;
+}
+
+.profile-user {
+  display: flex;
+  justify-content: center;
+  font-size: small;
+}
+
+.profile-workouts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 7rem;
+  font-size: 1.5rem;
+}
+
+.new-workout {
+  padding-top: 8rem;
+  font-size: 1.5rem;
+}
+
 /* Footer */
 footer {
   background: var(--black);
   position: absolute;
   width: 100%;
-
-
 }
 
 footer .foot {
@@ -153,9 +173,52 @@ footer .foot {
   margin: 20px auto;
   color: var(--green);
   text-align: center;
+  bottom: 0;
+  flex-shrink: 0;
 }
 
 main {
   margin-top: 10%;
-  margin-left: 30%
+  margin-left: 30%;
+  height: 100%;
+  width: 100%;
+}
+
+/* Profile */
+
+.profile {
+  font-size: 20px;
+  padding-left: 50px;
+  position: relative;
+}
+
+.profile .btn {
+  position: absolute;
+  margin-top: 10%;
+  left: 10%;
+}
+
+.form-input {
+  margin-top: -20px;
+  margin-left: 2px;
+}
+
+.workout {
+  left: 20px;
+  margin-left: 10%;
+  margin-top: 20px;
+}
+
+.title {
+  margin-top: 150px;
+  left: 20px;
+  margin-left: 10%;
+}
+
+@media screen and(max-width:990px) {
+  .profile .btn {
+    position: absolute;
+    margin-top: 10%;
+    left: 10%;
+  }
 }

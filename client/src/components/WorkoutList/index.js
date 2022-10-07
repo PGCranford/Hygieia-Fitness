@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const WorkoutList = ({ workouts, title }) => {
   if (!workouts.length) {
@@ -7,9 +7,9 @@ const WorkoutList = ({ workouts, title }) => {
   }
 
   return (
-    <div>
+    <div className='workout'>
       <h3>{title}</h3>
-      {/* {workouts &&
+      {workouts &&
         workouts.map(workout => (
           <div key={workout._id}>
             <p>
@@ -27,7 +27,7 @@ const WorkoutList = ({ workouts, title }) => {
               </Link>
             </div>
           </div>
-        )())} */}
+        ))}
     </div>
   );
 };
