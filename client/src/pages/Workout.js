@@ -20,7 +20,8 @@ const SingleWorkout = (props) => {
   }
 
   return (
-    <div className="single-workout">
+    <div className="single-workout"
+      style={{ "height": "74vh" }}>
       <div>
         <p className="sw-header">
           <span>{workout.username}</span> created this workout on
@@ -31,7 +32,7 @@ const SingleWorkout = (props) => {
         <p>{workout.workoutText}</p>
       </div>
       {workout.commentCount > 0 && <CommentList comments={workout.comments} />}
-          {Auth.loggedIn() && <CommentForm workoutId={workout._id} />}
+      {Auth.loggedIn() && <CommentForm workoutId={workout._id} />}
     </div>
   );
 };
