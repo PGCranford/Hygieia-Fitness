@@ -22,6 +22,13 @@ export const QUERY_WORKOUTS = gql`
       workoutText
       createdAt
       username
+      commentCount
+      comments {
+        _id
+        createdAt
+        username
+        commentBody
+      }
     }
   }
 `;
@@ -33,6 +40,13 @@ export const QUERY_WORKOUT = gql`
       workoutText
       createdAt
       username
+      commentCount
+      comments {
+        _id
+        createdAt
+        username
+        commentBody
+      }
     }
   }
 `;
@@ -82,12 +96,13 @@ export const QUERY_ME = gql`
         _id
         workoutText
         createdAt
-      }
-      comments {
-        _id
-        createdAt
-        rcommentBody
-        username
+        commentCount
+        comments {
+          _id
+          createdAt
+          commentBody
+          username
+        }
       }
     }
   }

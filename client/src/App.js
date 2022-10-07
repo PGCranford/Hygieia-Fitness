@@ -20,7 +20,7 @@ import Header from "./components/Header";
 import Homepage from "./components/Homepage";
 import Footer from "./components/Footer";
 import Profile from "./pages/Profile";
-import SingleComment from './pages/SingleComment';
+
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -55,8 +55,8 @@ function App() {
             <Route path="" element={<Profile />} />
           </Route>
           <Route path="/workout/:id" element={<Workout />} />
-          <Route path="/comment/:id" element={<SingleComment />} 
-              />
+       
+    
           <Route path="*" element={<NoMatch />} />
         </Routes>
 

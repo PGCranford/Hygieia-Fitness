@@ -34,12 +34,16 @@ export const ADD_WORKOUT = gql`
       workoutText
       createdAt
       username
+      commentCount
+      comments {
+        _id
+      }
     }
   }
 `;
 
 //add a comment
-export const ADD_CCOMMENT = gql`
+export const ADD_COMMENT = gql`
   mutation addComment($commentId: ID!, $commentBody: String!) {
     addComment(commentId: $tcommentId, commentBody: $commentBody) {
       _id

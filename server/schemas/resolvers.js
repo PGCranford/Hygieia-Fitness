@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Workout, } = require('../models');
+const { User, Workout } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -76,19 +76,19 @@ const resolvers = {
 
                 return workout;
             }
-            addComment: async (parent, { commentId, commentBody }, context) => {
-                if (context.user) {
-                    const updatedComment = await Comment.findOneAndUpdate(
-                        { _id: commentId },
-                        { $push: { comments: { commmentBody, username: context.user.username } } },
-                        { new: true, runValidators: true }
-                    );
-
-                    return updatedComment;
-                }
-                throw new AuthenticationError('You need to be logged in!');
+            throw new AuthenticationError('You need to be logged in!');
+        }, 
+        addComment: async (parent, { workoutId, commentBody }, context) => {
+            if (context.user) {
+              const updatedWorkout = await Workout.findOneAndUpdate(
+                { _id: workoutId },
+                { $push: { comments: { commentBody, username: context.user.username } } },
+                { new: true, runValidators: true }
+              );
+              return updatedWorkout;
             }
-        }
-    },
+            throw new AuthenticationError('You need to be logged in!');
+        },
+    }
 };
 module.exports = resolvers;

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
-import { ADD_CCOMMENT } from '../../utils/mutations';
+import { ADD_COMMENT } from '../../utils/mutations';
 
 const CommentForm = ({ commentId }) => {
   const [commentBody, setBody] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
-  const [addComment, { error }] = useMutation(ADD_CCOMMENT);
+  const [addComment, { error }] = useMutation(ADD_COMMENT);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -42,13 +42,13 @@ const CommentForm = ({ commentId }) => {
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
       <form
-        className="flex-row justify-center justify-space-between-md align-stretch"
+        //className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
       >
         <textarea
-          placeholder="Leave a reaction to this thought..."
+          placeholder="Leave a commetn to this workout..."
           value={commentBody}
-          className="form-input col-12 col-md-9"
+         // className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
 
