@@ -1,0 +1,37 @@
+* Global Variable */:root {
+    --main: #f01027;
+    --black: #000;
+    --white: #fff;
+    --font_family: "Besley", serif;
+}
+
+/* Content */
+
+.header-content .content {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--white) !important;
+    background: var(--black);
+    padding: 20px;
+}
+
+.header-content .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 90%;
+    width: 100%;
+    background: var(--black);
+    opacity: 0.25;
+}
+
+.header-content .content h6 {
+    font-size: 30px;
+}
+
+.header-content .btn {
+    margin-top: 30px;
+}
