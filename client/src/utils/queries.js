@@ -50,6 +50,7 @@ export const QUERY_WORKOUT = gql`
     }
   }
 `;
+
 export const QUERY_COMMENTS = gql`
   query comments($username: String) {
     comments(username: $username) {
@@ -107,23 +108,3 @@ export const QUERY_ME = gql`
     }
   }
 `;
-<<<<<<< HEAD
-
-export const QUERY_COMMENTS = gql`
-  query comments($username: String) {
-    comments(username: $username) {
-      _id
-      thoughtText
-      createdAt
-      username
-      comments {
-        _id
-        createdAt
-        username
-        commentBody
-      }
-    }
-  }
-`;
-=======
->>>>>>> develop

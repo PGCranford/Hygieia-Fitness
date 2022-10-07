@@ -16,8 +16,6 @@ const typeDefs = gql`
     username: String
     commentCount: Int
     comments: [Comment]
-<<<<<<< HEAD
-=======
   }
 
   type Comment {
@@ -25,7 +23,6 @@ const typeDefs = gql`
     commentBody: String
     createdAt: String
     username: String
->>>>>>> develop
   }
 
   type Auth {
