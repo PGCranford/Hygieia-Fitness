@@ -147,10 +147,23 @@ main {
   width: 100%;
 }
 
-.profile .btn-submit {
-  position: absolute;
-  margin-top: 10%;
-  left: 10%;
+/* Profile */
+
+.profile {
+  font-size: 20px;
+  padding-left: 50px;
+  position: relative;
+}
+
+.form-input {
+  margin-top: -20px;
+  margin-left: 2px;
+}
+
+.workout {
+  left: 20px;
+  margin-left: 10%;
+  margin-top: 20px;
 }
 
 .title {
@@ -179,19 +192,6 @@ main {
   font-size: 3.5rem;
 }
 
-@media screen and (max-width: 400px) {
-  .single-workout .sw-header {
-    padding-top: 4rem;
-    margin: 3rem;
-    align-items: center;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .single-workout .sw-header {
-    height: fit-content;
-    padding-top: 4rem;
-    margin: 3rem;
-    align-items: center;
-  }
+.btn-submit:hover::after {
+  width: 100%;
 }
