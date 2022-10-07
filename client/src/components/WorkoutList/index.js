@@ -16,7 +16,7 @@ const WorkoutList = ({ workouts, title }) => {
             <p className={styles["workout-info"]}>
               <div>
                 <Link to={`/workout/${workout._id}`}>
-                  <p>{workout.workoutTitle}</p>
+                  <p>{workout.workoutText}</p>
                 </Link>
               </div>
               <Link

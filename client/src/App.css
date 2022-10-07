@@ -57,12 +57,12 @@
 
 .header img {
   height: 90vh;
-  width: 100%;
+  max-width: 100%;
   object-fit: cover;
 }
 
 .header .btn {
-  margin-top: 30px;
+  margin-top: 1.875rem;
 }
 
 .col-12 {
@@ -72,22 +72,22 @@
 }
 
 .card {
-  top: 80px;
-  margin-right: 150px;
+  top: 5rem;
+  margin-right: 9.375rem;
 }
 
 .card-body {
-  padding-left: 2px;
+  padding-left: 0.125rem;
 }
 
 .btn {
-  top: 10px;
-  left: 5px;
+  top: 0.625rem;
+  left: 0.313rem;
 }
 
 /* Custom Section */
 .custom {
-  margin: 120px auto;
+  margin: 7.5rem auto;
 }
 
 .custom .box {
@@ -95,7 +95,7 @@
 }
 
 .custom img {
-  height: 400px;
+  height: 25rem;
   -o-object-fit: cover;
   object-fit: cover;
   cursor: pointer;
@@ -138,23 +138,6 @@
   font-size: 1.5rem;
 }
 
-/* Footer */
-footer {
-  background: var(--black);
-  position: absolute;
-  width: 100%;
-}
-
-footer .foot {
-  font-weight: 600;
-  font-size: 2em;
-  margin: 20px auto;
-  color: var(--white);
-  text-align: center;
-  bottom: 0;
-  flex-shrink: 0;
-}
-
 main {
   margin-top: 10%;
   margin-left: 30%;
@@ -176,16 +159,16 @@ main {
   left: 10%;
 }
 
-.form-input {
+/* .form-input {
   margin-top: -20px;
   margin-left: 2px;
-}
+} */
 
-.workout {
+/* .workout {
   left: 20px;
   margin-left: 10%;
   margin-top: 20px;
-}
+} */
 
 .title {
   display: flex;

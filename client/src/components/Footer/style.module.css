@@ -1,3 +1,49 @@
-.footer-main {
+/* Footer
+footer {
+  background: var(--black);
+  position: absolute;
+  width: auto;
+}
+
+footer .foot {
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 1.25rem auto;
+  color: var(--white);
+  text-align: center;
   bottom: 0;
+  flex-shrink: 0;
+} */
+
+footer {
+  background: var(--black);
+  position: absolute;
+  width: 100%;
+}
+
+footer .foot {
+  font-weight: 600;
+  font-size: 1.875rem;
+  margin: 1.25rem auto;
+  color: var(--white);
+  text-align: center;
+}
+
+@media screen and (max-width: 400px) {
+  footer .foot {
+    background: var(--black);
+    min-width: 100%;
+    max-width: 100%;
+    font-size: 2.8rem;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  footer .foot {
+    background: var(--black);
+    min-width: 100%;
+    max-width: 100%;
+    font-size: 2.4rem;
+  }
 }
