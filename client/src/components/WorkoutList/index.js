@@ -1,9 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
-=======
 import styles from "./style.module.css";
->>>>>>> develop
 
 const WorkoutList = ({ workouts, title }) => {
   if (!workouts.length) {
@@ -11,17 +8,10 @@ const WorkoutList = ({ workouts, title }) => {
   }
 
   return (
-<<<<<<< HEAD
-    <div className='workout'>
-      <h3>{title}</h3>
-      {workouts &&
-        workouts.map(workout => (
-=======
     <div className={styles["workout"]}>
       <h3 className={styles["workout-title"]}>{title}</h3>
       {workouts &&
         workouts.map((workout) => (
->>>>>>> develop
           <div key={workout._id}>
             <p className={styles["workout-info"]}>
               <div>

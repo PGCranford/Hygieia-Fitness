@@ -9,14 +9,8 @@
 }
 
 * {
-<<<<<<< HEAD
-    transition: 0.3s;
-    font-family: var(--font_family);
-
-=======
   transition: 0.3s;
   font-family: var(--font_family);
->>>>>>> develop
 }
 
 /* color */
@@ -58,17 +52,10 @@
 
 /* Navbar */
 .navbar {
-<<<<<<< HEAD
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-
-=======
   display: flex;
   justify-content: space-between;
   padding: 1.25rem;
   max-width: 100%;
->>>>>>> develop
 }
 
 .navbar-toggler {

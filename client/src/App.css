@@ -107,51 +107,6 @@
   transform: scale(1.1);
 }
 
-<<<<<<< HEAD
-.profile {
-  padding-top: 4rem;
-  font-size: 14rem;
-}
-
-.profile-title {
-  padding-top: 4rem;
-}
-
-.profile-user {
-  display: flex;
-  justify-content: center;
-  font-size: small;
-}
-
-.profile-workouts {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 7rem;
-  font-size: 1.5rem;
-}
-
-.new-workout {
-  padding-top: 8rem;
-  font-size: 1.5rem;
-}
-
-/* Footer */
-footer {
-  background: var(--black);
-  position: absolute;
-  width: 100%;
-}
-
-footer .foot {
-  font-weight: 600;
-  font-size: 2em;
-  margin: 20px auto;
-  color: var(--green);
-  text-align: center;
-  bottom: 0;
-  flex-shrink: 0;
-=======
 /* Profile */
 
 .profile-main {
@@ -183,7 +138,6 @@ footer .foot {
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
->>>>>>> develop
 }
 
 main {
@@ -201,15 +155,6 @@ main {
   position: relative;
 }
 
-<<<<<<< HEAD
-.profile .btn {
-  position: absolute;
-  margin-top: 10%;
-  left: 10%;
-}
-
-=======
->>>>>>> develop
 .form-input {
   margin-top: -20px;
   margin-left: 2px;
@@ -222,19 +167,6 @@ main {
 }
 
 .title {
-<<<<<<< HEAD
-  margin-top: 150px;
-  left: 20px;
-  margin-left: 10%;
-}
-
-@media screen and(max-width:990px) {
-  .profile .btn {
-    position: absolute;
-    margin-top: 10%;
-    left: 10%;
-  }
-=======
   display: flex;
   justify-content: center;
   margin-top: 10rem;
@@ -262,5 +194,4 @@ main {
 
 .btn-submit:hover::after {
   width: 100%;
->>>>>>> develop
 }
