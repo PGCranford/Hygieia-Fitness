@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Workout} = require('../models');
+const { User, Workout } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -25,12 +25,12 @@ const resolvers = {
                 .select('-__v -password')
                 .populate('workouts');
         },
-        workouts: async (parent, { username}) => {
-            const params = username ? {username} : {};
-            return Workout.find(params).sort({ createdAt: -1});
+        workouts: async (parent, { username }) => {
+            const params = username ? { username } : {};
+            return Workout.find(params).sort({ createdAt: -1 });
         },
-        workout: async(parent, {_id}) => {
-            return Workout.findOne({_id});
+        workout: async (parent, { _id }) => {
+            return Workout.findOne({ _id });
         },
         comment: async (parent, { username }) => {
             const params = username ? { username } : {};
@@ -64,21 +64,31 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        addWorkout: async(parent, args, context) => {
-            if(context.user){
-                const workout = await Workout.create({...args, username: context.user.username});
+        addWorkout: async (parent, args, context) => {
+            if (context.user) {
+                const workout = await Workout.create({ ...args, username: context.user.username });
 
-                await User.findByIdAndUpdate (
-                    {_id: context.user._id},
-                    {$push: {workouts: workout._id }},
-                    {new: true}
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { workouts: workout._id } },
+                    { new: true }
                 );
 
                 return workout;
             }
-            throw new AuthenticationError('You need to be logged in!');
+            addComment: async (parent, { commentId, commentBody }, context) => {
+                if (context.user) {
+                    const updatedComment = await Comment.findOneAndUpdate(
+                        { _id: commentId },
+                        { $push: { comments: { commmentBody, username: context.user.username } } },
+                        { new: true, runValidators: true }
+                    );
+
+                    return updatedComment;
+                }
+                throw new AuthenticationError('You need to be logged in!');
+            }
         }
     },
 };
-
 module.exports = resolvers;
