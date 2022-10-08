@@ -1,8 +1,9 @@
-* Global Variable */:root {
+/* Global Variable */
+:root {
     --main: #f01027;
     --black: #000;
     --white: #fff;
-    --font_family: "Besley", serif;
+    --font_family: 'Besley', serif;
 }
 
 /* Content */
