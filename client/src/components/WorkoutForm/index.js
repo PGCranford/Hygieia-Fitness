@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { ADD_WORKOUT } from '../../utils/mutations';
-import { QUERY_WORKOUTS, QUERY_ME } from '../../utils/queries';
+import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { ADD_WORKOUT } from "../../utils/mutations";
+import { QUERY_WORKOUTS, QUERY_ME } from "../../utils/queries";
+import styles from "./style.module.css";
 
 const WorkoutForm = () => {
-
-  const [workoutText, setText] = useState('');
+  const [workoutText, setText] = useState("");
   // const [characterCount, setCharacterCount] = useState(0);
 
   //use mutation hook that allows us to update the cache of any related queries
   const [addWorkout] = useMutation(ADD_WORKOUT, {
     update(cache, { data: { addWorkout } }) {
-
       // could potentially not exist yet, so wrap in a try/catch
       try {
         // update me array's cache
@@ -21,7 +20,7 @@ const WorkoutForm = () => {
           data: { me: { ...me, workouts: [...me.workouts, addWorkout] } },
         });
       } catch (e) {
-        console.warn("First workout added by user!")
+        console.warn("First workout added by user!");
       }
 
       // update workout array's cache
@@ -30,54 +29,56 @@ const WorkoutForm = () => {
         query: QUERY_WORKOUTS,
         data: { workouts: [addWorkout, ...workouts] },
       });
-    }
+    },
   });
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     if (event.target.value.length <= 280) {
       setText(event.target.value);
       // setCharacterCount(event.target.value.length);
     }
   };
 
-  const handleFormSubmit = async event => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
       // add thought to database
       await addWorkout({
-        variables: { workoutText }
+        variables: { workoutText },
       });
 
       // clear form value
-      setText('');
+      setText("");
       // setCharacterCount(0);
     } catch (e) {
       console.error(e);
     }
   };
 
-
-
   return (
-    <div>
+    <div className={styles["new-workout"]}>
+      <div className={styles["workout-title"]}>Add a new workout</div>
       {/* <p>
             Character Count: {characterCount}/280
             {error && <span className="ml-2">Something went wrong...</span>}
         </p> */}
-      <form className='profile'
-        style={{ "height": "80vh" }}>
+      <form className={styles["form"]}>
         <textarea
+          className={styles["form-input"]}
           placeholder="Enter a workout..."
           value={workoutText}
-          className="form-input col-10 col-md-4"
           onChange={handleChange}
         ></textarea>
-        <button className='btn' type="submit" onClick={handleFormSubmit}>
+        <button
+          className={styles["btn-submit"]}
+          type="submit"
+          onClick={handleFormSubmit}
+        >
           Submit
         </button>
       </form>
-    </div >
+    </div>
   );
 };
 

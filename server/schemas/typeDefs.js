@@ -14,6 +14,15 @@ const typeDefs = gql`
     workoutText: String
     createdAt: String
     username: String
+    commentCount: Int
+    comments: [Comment]
+  }
+
+  type Comment {
+    _id: ID
+    commentBody: String
+    createdAt: String
+    username: String
   }
 
   type Auth {
@@ -31,6 +40,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addWorkout(workoutText: String!): Workout
+    addComment(commentId: ID!, commentBody: String!): Workout
   }
 `;
 

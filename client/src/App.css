@@ -56,13 +56,12 @@
 }
 
 .header img {
-  height: 90vh;
-  width: 100%;
+  max-width: 100%;
   object-fit: cover;
 }
 
 .header .btn {
-  margin-top: 30px;
+  margin-top: 1.875rem;
 }
 
 .col-12 {
@@ -72,22 +71,22 @@
 }
 
 .card {
-  top: 80px;
-  margin-right: 150px;
+  top: 5rem;
+  margin-right: 9.375rem;
 }
 
 .card-body {
-  padding-left: 2px;
+  padding-left: 0.125rem;
 }
 
 .btn {
-  top: 10px;
-  left: 5px;
+  top: 0.625rem;
+  left: 0.313rem;
 }
 
 /* Custom Section */
 .custom {
-  margin: 120px auto;
+  margin: 7.5rem auto;
 }
 
 .custom .box {
@@ -95,7 +94,7 @@
 }
 
 .custom img {
-  height: 400px;
+  height: 25rem;
   -o-object-fit: cover;
   object-fit: cover;
   cursor: pointer;
@@ -107,10 +106,7 @@
   transform: scale(1.1);
 }
 
-.profile {
-  padding-top: 4rem;
-  font-size: 14rem;
-}
+/* Profile */
 
 .profile-title {
   padding-top: 4rem;
@@ -122,37 +118,19 @@
   font-size: small;
 }
 
-.profile-workouts {
+.profile-workout {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 7rem;
-  font-size: 1.5rem;
+  padding-top: 1rem;
+  font-size: 2.5rem;
 }
 
 .new-workout {
-  padding-top: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.5rem;
-}
-
-
-/* Footer */
-footer {
-  background: var(--black);
-  position: absolute;
-  width: 100%;
-
-
-}
-
-footer .foot {
-  font-weight: 600;
-  font-size: 2em;
-  margin: 20px auto;
-  color: var(--white);
-  text-align: center;
-  bottom: 0;
-  flex-shrink: 0;
 }
 
 main {
@@ -182,36 +160,29 @@ main {
 }
 
 .title {
-  margin-top: 150px;
-  left: 20px;
-  margin-left: 10%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10rem;
+  font-size: 6rem;
+  color: #f01027;
 }
 
-.btn-submit {
-  width: 300px;
-  border: 2px solid var(--main);
-  color: var(--main) !important;
-  border-radius: 15px;
-  position: relative;
-  z-index: 1;
+/* single workout  */
+.single-workout {
+  padding-top: 3rem;
+  margin: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.btn-submit:hover {
-  color: var(--white) !important;
+.sw-header {
+  font-size: 1.5rem;
 }
 
-.btn-submit::after {
-  content: "";
-  background: var(--main);
-  display: block;
-  position: absolute;
-  height: 100%;
-  z-index: -1;
-  width: 0px;
-  top: 0;
-  border-radius: 15px;
-  left: 0;
-  transition: 0.3s;
+.sw-body {
+  font-size: 3.5rem;
 }
 
 .btn-submit:hover::after {
