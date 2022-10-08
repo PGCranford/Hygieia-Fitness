@@ -32,16 +32,16 @@ https://hygieia-fitness-p3g6.herokuapp.com/
 ## Deployed Site Screenshots
 
 ## Homepage
-![screenshot of portfolio](./public/assets/images/homepage.png)
+![screenshot of portfolio](./client/public/assets/images/homepage.png)
 
 ## Login Page
-![screenshot of portfolio](./public/assets/images/login.png)
+![screenshot of portfolio](./client/public/assets/images/login.png)
 
 ## Signup Page
-![screenshot of portfolio](./public/assets/images/signup.png)
+![screenshot of portfolio](./client/public/assets/images/signup.png)
 
 ## Profile Page
-![screenshot of portfolio](./public/assets/images/profile.png)
+![screenshot of portfolio](./client/public/assets/images/profile.png)
 
 ## Single Workout Page
-![screenshot of portfolio](./public/assets/images/singleworkout.png)
+![screenshot of portfolio](./client/public/assets/images/singleworkout.png)
