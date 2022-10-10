@@ -27,13 +27,15 @@ const resolvers = {
         },
         workouts: async (parent, { username }) => {
             const params = username ? { username } : {};
+            console.log(params)
+            console.log(Workout.find(params))
             return Workout.find(params).sort({ createdAt: -1 });
         },
         workout: async (parent, { _id }) => {
             return Workout.findOne({ _id });
         },
-      
-        
+
+
     },
 
     Mutation: {
@@ -72,15 +74,15 @@ const resolvers = {
                 return workout;
             }
             throw new AuthenticationError('You need to be logged in!');
-        }, 
+        },
         addComment: async (parent, { workoutId, commentBody }, context) => {
             if (context.user) {
-              const updatedWorkout = await Workout.findOneAndUpdate(
-                { _id: workoutId },
-                { $push: { comments: { commentBody, username: context.user.username } } },
-                { new: true, runValidators: true }
-              );
-              return updatedWorkout;
+                const updatedWorkout = await Workout.findOneAndUpdate(
+                    { _id: workoutId },
+                    { $push: { comments: { commentBody, username: context.user.username } } },
+                    { new: true, runValidators: true }
+                );
+                return updatedWorkout;
             }
             throw new AuthenticationError('You need to be logged in!');
         },

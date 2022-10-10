@@ -11,7 +11,7 @@ const Profile = () => {
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
-
+  console.log(data)
   const user = data?.me || data?.user || {};
 
   // navigate to personal profile page if username is the logged-in user's
@@ -33,22 +33,29 @@ const Profile = () => {
   }
 
   return (
-    <div className="profile-main">
-      <div>
-        <h2 className="title">{`${user.username}'s`} profile.</h2>
-      </div>
-      <div className="new-workout">
-        <div>{!userParam && <WorkoutForm />}</div>
-      </div>
-      <div>
-        <div className="profile-workout">
-          <WorkoutList
-            workouts={user.workouts}
-            title={`${user.username}'s workouts...`}
-          />
+    <>
+      {console.log(user)}
+      <div className="profile-main">
+        <div>
+          <h2 className="title">{`${user.username}'s`} profile.</h2>
+        </div>
+        <div className="new-workout">
+          <div>{!userParam && <WorkoutForm />}</div>
+        </div>
+        <div>
+          <div className="profile-workout">
+            <WorkoutList
+              workouts={user.workouts}
+              title={`${user.username}'s workouts...`}
+            />
+          </div>
         </div>
       </div>
-    </div>
+
+
+    </>
+
+
   );
 };
 

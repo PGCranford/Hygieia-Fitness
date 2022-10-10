@@ -24,6 +24,7 @@ const WorkoutForm = () => {
       }
 
       // update workout array's cache
+      console.log(cache)
       const { workouts } = cache.readQuery({ query: QUERY_WORKOUTS });
       cache.writeQuery({
         query: QUERY_WORKOUTS,
@@ -40,7 +41,7 @@ const WorkoutForm = () => {
   };
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
+
 
     try {
       // add thought to database
